@@ -1,0 +1,4793 @@
+Title,Product,Application ,Defect ID,Core Patch/Charts,Custom ms/Module/VM/Orchestration Zip,Comments/Instructions,Commit ID,Dependency,Released,Release Date,Item Type,Path
+1,C1;#D1;#iPaaS;#R1;#BriteBill;#NEO;#MMap,OC;#C1;#RTB;#OH;#SkyFM;#Sky-Smart;#Sky-View;#Sky-Force;#OSO;#OUA;#MMAP;#BriteBill,NA,,,"
+New/Updated External Interfaces
+Please refer to the following table containing the list of features and new/changed API/Kafka External integration:
+ PI15 External Interfaces.xlsx
+","
+NA",NA,TRUE,5/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OH;#OC,NA,"
+NA","
+error-management
+orderexecution-archive
+numberportability-npsimulator","
+Uninstall below 3 MSs and delete all resources related to these MSs:  
+error-management
+orderexecution-archive
+numberportability-npsimulator
+","
+
+edff8f982f9",NA,TRUE,6/7/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,NEO,OSO,ITR15.5 Baseline,"
+oni-federation- 1.0.699-48
+onsi-2.0.1461-24
+ops-ui-1.0.837-14
+run-time-catalog-1.0.289-11
+persistence-10.7.242
+platform-10.7.193.1
+platform-config-10.7.87ms360-security-10.7.79
+nap-common-10.6.349","
+
+Orchestration Zip: 
+
+http://10.247.24.32:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support1-SNAPSHOT/att-orchestration-10.4-Support1-20230707.201842-5-src.zip
+ 
+
+Build: (In Progress)
+http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/
+
+
+
+
+
+","
+?TLC Version: 10.4.304-Support1
+Reference Images:
+ATT MSs Image: 10.4-Support1-SNAPSHOT-117Customization Image: 10.4-Support1-SNAPSHOT-211-
+ONI Image: 10.4-Support1-SNAPSHOT-17
+Reference Env:
+Master IP = 10.247.25.15Node1 IP = 10.247.25.35
+
+
+
+Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/backupOldCharts/31/
+http://os-delivery-jenkins:8080/job/Utility/job/backupDockersWithoutDeploy/271/
+Note :-This build is from Core Version 22.12
+SSO Integration Issue Fix
+
+Following additional IAAS file changes are needed for SSO integration :-
+
+Att-dop        IAAS file :-New Role added
+        -external:
+           id:'""[UI:insight]""'
+         internal:
+           id: UI:insightNew changes added        under nap-onp
+nap-onp:
+    config:
+      sso:
+        ms360:
+          enabled: true
+    onp:
+      portal:
+        ms360gw:
+          enabled: true
+      config:
+        sso:
+          ms360:
+            enabled: trueNap-common        override changes :-
+napui:
+  insight:
+    enabled: true
+    config:
+     apigwSecurityEnabled: true
+        authorized:
+          internal:
+            role: UI:insight  Ms360        override changes :-
+
+contentTypesWhiteList: application/json|application/merge-patch+json|application/json-patch+json|application/x-www-form-urlencoded|text/plain|multipart/form-data|text/html|text/html;charset=utf-8|application/octetstream|application/json;charset=utf-8|application/json-patch+json;charset=utf-8|text/xml|application/soap+xml;charset=UTF-8|text/xml;charset=UTF-8|image/gif|image/jpeg|image/tiff|image/png|image/bmp|image/x-msbmp|application/vnd.ms-word|application/msword|application/vnd.ms-word|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/pdf|application/x-pdf|application/vnd.msexcel|application/msexcel|application/x-tika-ooxml|application/vnd.ms-spreadsheetml|application/vnd.msexcel|application/msexcel|application/x-tika-ooxml|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/vnd.ms-spreadsheetml|application/vnd.ms-excel|application/msexcel|application/x-tikaooxml|application/vnd.ms-excel.sheet.macroEnabled.12|application/x-msmetafile|application/x-emf|application/vnd.visio|application/x-tika-msoffice|application/vnd.visio|application/x-tika-msoffice|application/xml|application/vnd.visio|application/vnd.visio2013|application/x-tika-ooxml|application/vnd.ms-excel.sheet.macroEnabled.12|application/vnd.ms-visio.drawing|image/vnd.dwg|image/vnd.dxf|text/plain|application/vnd.ms-powerpoint|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/zip|application/octetstream|application/vnd.ms-outlook|application/gzip|application/x-gzip|application/x-gunzip|application/gzipped|application/gzip-compressed|application/x-compressed|application/x-compress|gzip/document|application/octet-stream|application/x-rar-compressed|application/octet-stream|application/vnd.ms-outlook|text/plain|message/rfc822|text/html|image/jp2|image/jpeg2000|image/jpeg2000-image|image/x-jpeg2000-image|application/rtf|application/x-rtf|text/rtf|text/richtext|application/msword|application/doc|application/javascript|application/x-soffice|text/event-stream;charset=utf-8|application/json-patch-query+json|application/x-ndjson
+
+
+","
+NA",NA,TRUE,6/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,NEO,OUA,ITR15.5 Baseline + CDEX-236428,"
+Platform Charts (22.12):
+attbsse-aua- 10.4.4-prd15.5
+ms360-security-10.7.79-25             
+nap-common- 10.6.368            
+persistence- 10.7.191-5        
+platform- 10.7.193-33          platform-config- 10.7.87-7       ","
+
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/4/
+Orchestration Zip:http://os-delivery-nexus:8081/repository/att.yum.snapshot/com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230630.103745-3-src.zip","
+Reference Env:
+Master IP =10.247.187.138
+ Node1 IP = 10.247.187.188
+OUA Simulators:
+att_simulators_15.5.tar","
+NA",NA,TRUE,6/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OC,CDEX-237261,"
+NA","
+NA","
+Steps for Devops to delete pi_product_previous connectors:Exec into      pi-product-cbkc-plugin podsRun the following curl :      curl -k -vhttps://pi-product-cbkc-plugin-service:8443/connectorsif you get      pi_product_previous-* in the response, run the following curl to delete      these connectors : curl -k -v -X DELETEhttps://pi-product-cbkc-plugin-service:8443/connectors/pi_product_previous-<id      obtained from previous curl>run curl -k -vhttps://pi-product-cbkc-plugin-service:8443/connectors      again to check that no connectors are present with pi_product_previous-*","
+NA",NA,TRUE,7/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OC,ITR15.5 Baseline,"
+
+
+OC  HF#77","
+NA","
+NA","
+5e5027ebcdf
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OH,ITR15.5 Baseline,"
+OH ?HF#38
+","
+?NA
+","
+?NA
+","
+e62a2364c4e
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,R1,RTB,ITR15.5 Baseline,"
+
+
+RTB HF#81","
+NA","
+NA","
+9657dacdd88
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OC,ITR15.5 Baseline,"
+CE HF#9","
+NA",,"
+2e327eab999
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OC,ITR15.5 Baseline,"
+
+Mass HF#19","
+NA","
+NA","
+fd525a26899
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OC,ITR15.5 Baseline,"
+
+Care HF#80","
+NA","
+NA","
+c78222d8139
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,C1,C1,ITR15.5 Baseline,"
+C1 HF#12","
+NA","
+NA","
+35643133c71
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1;#R1;#C1,OC;#OH;#C1;#RTB,ITR15.5 Baseline,"Common Services HF#5
+","
+NA","
+NA","
+e2c54d39882
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1;#R1;#C1,OC;#OH;#C1;#RTB,ITR15.5 Baseline,"MPP HF#119
+","
+NA","
+NA","
+0a77e8dda8e
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,C1,C1,PI15.4 C1 Zip Files,NA,"
+NA","
+BP:
+cb-export/CatalogOne_BackUps/PI15/ITR15.5/Drop_22_12/Business_Parameter_rel155_9_7_2023_16_6_15_Drop22_12_PI15.5.zip
+FD:
+ cb-export/CatalogOne_BackUps/PI15/ITR15.5/Drop_22_12/FD_rel155_9_7_2023_16_6_21_Drop22_12_PI15.5.zip","
+NA",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,MMap,MMAP,CDEX-238512,"
+No","
+NA",Deploy indexes from VM folder 15.5.13.,NA,NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OH,CDEX-238831,"
+NA","
+NA","
+NA","
+b263517ff08
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,D1,OH,CDEX-238810,"
+?NA
+","
+?NA
+","
+?NA
+","
+a4b472a49d7
+",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.01,R1,RTB,BSSE-69866,"
+?NA
+","
+?NA
+","
+?For now, this change is only for QE env. This change will be taken to PET/SNP/Prod only after PI15 code base is taken in production.
+
+PI15 RN will contain ONLY this changes, no other changes can be taken along with this change.
+Verify if configs are updated post the deployment of RTB pipeline in app-customerbill-billdataextract configmap. **This is the first RN to be deployed for the featureBSSE-68250
+","
+?4d2231b27a4
+",,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.03,R1,RTB,BSSE-69868,"
+?NA
+","
+?NA
+","
+?Check if last eventId of  FinalizedBill topic is present in FinalizedBill_v4 topic and last eventId of productOrderFutureOrderItemNotification topic is present in FutureProductOrderItemChangeEventTopic_v4_0  topic. If yes then deploy this RN in next deployment window.
+ 
+We can deploythis RN only after RN 15.5.02 is deployed in env. So, it can be taken in QE/Prod in next deployment window after RN2 is deployed.
+ 
+ 
+For now, thischange is only for QE env. This change will be taken toSNP/Prod only after PI15 code base is taken in production.
+ 
+PI15 RN will  contain ONLY this changes, no other changes can be taken along with this change.
+ 
+Verifiy if configs are updated post the deployment of RTB pipeline in app-customerbill-acbrimpactevent and app-customerbill-customerbill config maps
+ 
+ ** This is the Third RN to be released as part ofBSSE-68250
+","
+?974de23f00b
+ e454ed83b83
+",RN 15.5.02,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.02,R1,RTB,BSSE-69867,"
+?NA
+","
+?NA
+","
+?We can deploy this RN onlyafter few hours/days/month after RN 15.5.01 is deployed. So, it can be taken in QE/Prod in next deployment window after RN 1 is deployed.
+
+
+ 
+For now, this change isONLY for QE env.This change will be taken to PET/SNP/Prod only after PI15 code base is taken in production.
+ 
+PI15 RN will ONLY contain this changes, no other changes can be taken along with this change.
+ 
+Verifiy if configs are updated post the deployment of RTB pipeline in app-customerbill-acbrimpactevent and app-customerbill-customerbill config maps
+ ** This is the SECOND RN to be released as part ofBSSE-68250
+","
+?1db0065e62e
+ ca74d3424ef
+",RN 15.5.01,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.04,NEO,OUA,CDEX- 218724,"
+attbsse-aua-10.4.5-prd15.5
+ms360-security-10.7.79-25
+nap-common-10.6.368
+persistence-10.7.242-3
+platform-10.7.193-33platform-config-10.7.87-7","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/5/
+Orchestration Zip:http://os-delivery-nexus:8081/repository/att.yum.snapshot/com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230707.144148-4-src.zip
+","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205","
+NA",NA,TRUE,7/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.04,MMap,MMAP,CDEX-238880,"
+No","
+15.5.14
+",Version has been corrected.,"
+NA",NA,TRUE,7/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.04,MMap,MMAP,CDEX-237183,"
+No","
+15.5.13
+",Fixed the logic in stored procedure to calculate the measures.,"
+NA",NA,TRUE,7/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.04,MMap,MMAP,CDEX-239791,"
+No","
+No","
+To fix the issue we need to deploy latest NR BPM docker image.
+BPM image: 9.4.5.2058","
+NA",NA,TRUE,7/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05-Do not Deploy,D1,OC,BSSE- 76340  BSSE-73899 -Do not Deploy,"
+NA","
+productorder-wrapper:15.5.6
+","
+Do not Deploy","
+e7757f6a2c2
+",NA,FALSE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05,C1,C1,,"
+C1 HF#15","
+NA","
+NA","
+db1fc9714c3
+",NA,TRUE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05,R1,RTB,,"
+RTB HF#83","
+NA","
+NA","
+a9e7fead55a
+",NA,TRUE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05,D1,OH,CDEX-238831,"
+
+OH HF#40","
+NA","
+Including Config change","
+5cc8a692087
+b4445a702a7
+",NA,TRUE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05,D1,OC,,"
+OCHF#80
+","
+NA","
+NA","
+72d529f4e5d
+",NA,TRUE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05,D1,OC,,"
+CareHF#82
+","
+NA","
+NA","
+8de8f3f0ddd
+",NA,TRUE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05,D1,OC,,"
+CEHF#10
+","
+NA","
+NA","
+1503bfdc82e
+",NA,TRUE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.05,D1;#C1;#R1,OC;#C1;#OH;#RTB,,"
+MPPHF#122
+","
+NA","
+Note: All 3 PLs should be executed in Install Mode ONLY.","
+b95b5233213
+",NA,TRUE,7/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.06,D1,OC,"Reduce MilCy replicas to 1, in NFT envs","
+NA","
+NA","
+NA","
+83995438bc5
+",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.06,D1,OC,yaml syntax fix,"
+NA","
+NA","
+NA","
+e3f5a2ec779
+",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.06,MMap,MMAP,CDEX-240253,,"
+?15.5.15
+","
+?Version has been corrected.
+","
+NA",NA,TRUE,7/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.06,MMap,MMAP,CDEX-239519,"
+?No
+","
+?NA
+","
+?Fix has been provided in new MSTR config file. Please deploy CDEX-239519_Audit Phase - Quick View.mmp from below bitbucket link.
+ https://10.88.195.72:8443/projects/AMO/repos/moneymap/browse/devops/att/MSTR?at=refs%2Fheads%2FPI15
+","
+NA",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.00,BriteBill,BriteBill,ITR15.5 Baseline,"
+NA","
+NA","
+Docs to adopt ED –
+Steps to Perform - MS360 ED.docx
+ Reference Branch – 
+https://10.88.195.72:8443/projects/BRIT/repos/bb-ms360-setup-deployment/browse/env/att-bb-qe03?at=refs%2Fheads%2Fmaster_ed
+Once ED is adopted, make these changes in deployment repo for new MSs (bb-billops-dashboard&billexperience-search-ms)
+ commit : 4d10df3867e
+Configure keycloak realm & configure IB dashboard properties – See attached:IB Dashboard Openid Configuration.pdfbb_jwt_realm.json
+reference commit :f5836775280
+Once MSs & Couchbase PI15 (with scope & collection structure) is created we need to follow these steps to migrate data from PI 14 CB to this new PI 15 CBSee attached Couchbase Data Migration VM to Pods.pdf
+","
+15.5 BB MS Release-commit -ed554c38dc1
+BB classic version –
+2.224.1
+Please execute template patching after classic deployment
+See attached:
+Template Patching Instructions.pdf",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.06,MMap,MMAP,CDEX-239791,No,15.5.15,"
+Created new SP to update the CONFIGURATION table with trend refresh details.
+","
+NA",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.06,C1,C1,CDEX-238766,"
+NA","
+
+catalogoneintegration-outboundfilte:15.5.21","
+This is only a DEBUG patch, for QE envs.","
+a20147ba2a3
+",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.07,D1,OC,CDEX-232265,"
+NA","
+
+productorder-wrapper:15.5.7","
+NA","
+71537d15b1d
+",NA,TRUE,7/13/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.07,iPaaS,SkyFM,CDEX-237033,,"
+?Module :
+ Bsse-Smart :
+
+bsse-bootstrap: 5336
+ bsse-application: 5337
+bsse-fallout-management: 5338bsse-reconciliation: 5339
+",,"
+?b006b7fd33a
+",,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.07,MMap,MMAP,CDEX-239869,"
+?No
+","
+?NA
+","
+Automated MTI was getting wrong input values for column MTI_PROPERTIES. To fix the issue automated_mti flow has been changed. We need to deploy below NR BPM image in environment.
+ NR BPM docker image: 9.4.5.3019
+","
+?NA
+",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.07,MMap,MMAP,CDEX-241007,"
+?No
+","
+?15.5.17
+","
+?To fix this defect changed the data type of tag from varchar to varchar (max).
+","
+?NA
+",NA,TRUE,7/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.08,MMap,MMAP,CDEX-240237,"
+?No
+","
+?15.5.17
+","
+Columns were removed from view which were causing the issue.
+","
+?NA
+",NA,TRUE,7/16/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.08,MMap,MMAP,CDEX-240257,"
+Yes","
+NA","
+Seploy below mentioned build in environment along with latest NR ATM and BPM docker image for 15.5.
+  \\cvstor\Apps-Versions\Releases\9.4.5\MoneyMap\Build 2082 - 14072023_1433\","
+?NA
+",NA,TRUE,7/16/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.08,R1,RTB,CDEX-235177 CDEX-236974 CDEX-237751,"
+RTB HF#89","
+NA","
+NA","
+a05ccff3add
+",NA,TRUE,7/16/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,BriteBill,BriteBill,"CDEX-193049, CDEX-216075, CDEX-233385 BSSE-60141","
+NA","
+NA","
+
+Adopt API logger API and Create Jenkins job to run the API logger
+Please follow attached  document (BSSE-60141_ChangingLogLevelusingA3SactuatorandCurltool.pdf) to configure/setup Jenkins job for the same.Attached SQL script is required to be run on MySQL database.
+ Path: /database/mysql5/history/22.10/upgrade_britebill_22.09_to_22.10.sql
+","BB MS Release – fad8bd32063
+BB classic version – 2.224.2",NA,TRUE,7/17/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,MMap,MMAP,CDEX-240210,"
+No","
+15.5.18
+","
+MM_PARAM table updated correctly for impacted SPs.
+","
+NA",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,D1,OC,CDEX-227539,"
+OC HF#82","
+NA","
+NA","
+477f120684e",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,D1,OH,CDEX-237635,"
+OH HF#42","
+NA","
+NA","
+7df8e4dce73
+4805af0bc9b
+4ca0cd7640b
+
+",,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,D1,OC,NA,"
+MASS HF#20","
+NA","
+NA","
+ff4ee9e37f5",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,D1,OC,NA,"
+Care HF#86","
+NA","
+NA","
+bd035f19407
+",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,R1,RTB,NA,"
+RTB HF#90","
+NA","
+NA","
+2d3ea7d3712
+",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,D1;#C1;#R1,OC;#OH;#RTB;#C1,NA,"
+MPP HF#124","
+NA","
+Note: All 3 PLs should be executed in Install Mode ONLY.
+","
+cf2676db314
+",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,MMap,MMAP,CDEX-241019 CDEX-241720,"
+No","
+15.5.18
+","
+Length of tag column increased to remove uniqueness.
+","
+NA",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.09,MMap,MMAP,CDEX-241434,"
+No","
+15.5.18
+","
+Updated the control name for the rule.
+","
+NA",NA,TRUE,7/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.10,MMap,MMAP,CDEX-241577,"
+No",15.5.20,"
+Changed the retention in table period as requested by customer,
+DS_CFM_821: from 10 days to 120 daysDS_CFM_824: from 60 days to 120 days","
+NA",NA,TRUE,7/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.10,NEO,OUA,CDEX- 241723  CDEX- 240129  AKS v1.25 Certified,"
+attbsse-aua-10.4.15-prd15.5
+ms360-security-10.7.79-25         
+nap-common-10.6.368     
+persistence-10.7.242-3
+platform-10.7.193-33platform-config-10.7.87-7","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/15/Orchestration Zip:http://os-delivery-nexus:8081/repository/att.yum.snapshot/com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230719.153302-13-src.zip","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205
+","
+NA",NA,TRUE,7/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.10,D1,OH,Removing WA in alignment with OH Patch#40: CDEX-238831,"
+NA","
+NA","
+NA","
+b4445a702a7
+",NA,TRUE,7/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.10,MMap,MMAP,CDEX-238756,,"
+?15.5.20
+","
+?This fix is performance enhancement of procedures and function to run the rules faster on the database.
+",,,TRUE,7/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.10,MMap,MMAP,CDEX-241748 CDEX-242015,"
+?Yes
+","
+?No
+","
+Deploy below build from core. This build needs to be deployed in DR environment as well.
+
+Name
+Type
+Location
+Tx3
+Microservices
+https://illin3465:8443/#browse/browse:amo-moneymap:v2%2Ftx3%2Ftags%2Fv9.4.5.2084
+Audit
+Microservices
+https://illin3465:8443/#browse/browse:amo-moneymap:v2%2Fmm-audit%2Ftags%2Fv9.4.5.2084
+MGT
+Microservices
+https://illin3465:8443/#browse/browse:amo-moneymap:v2%2Fmm-mgt%2Ftags%2Fv9.4.5.2084
+Nodered BPM
+Microservices
+https://illin3465:8443/#browse/browse:amo-moneymap:v2%2Fmm-nodered-bpm%2Ftags%2Fv9.4.5.2084
+Nodered Automation
+Microservices
+https://illin3465:8443/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.5.2084
+GUI Build
+Windows Application
+\\cvstor\Apps-Versions\Releases\9.4.5\MoneyMap\Build   2084 - 20072023_1136\
+",,,TRUE,7/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.11,iPaaS,SkyFM,CDEX-242551,,"
+?Module :
+   Sky-Force :    o2aportalui :  7816
+",,"
+?
+9a8da47ca58
+",,TRUE,7/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.11,MMap,MMAP,CDEX-243430,"
+No","
+No","
+To fix this defect we need to deploy below NR ATM docker image. mm-nodered-automation:v9.4.5.3036 (Browse - Nexus Repository Manager (amdocs.com)","
+NA",NA,TRUE,7/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.11,BriteBill,BriteBill,CDEX-239964 CDEX-237943,"
+NA","
+NA","
+Please perform template patching after classic deployment, per attached file: Template Patching_CDEX-237943.pdf
+","
+1113e697891 Platform hybrid release package
+ 2.224.3",NA,TRUE,7/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.11,NEO,OUA,CDEX-243440  CDEX-243596,"
+attbsse-aua-10.4.20-prd15.5
+ms360-security-10.7.79-25
+nap-common-10.6.368
+persistence-10.7.242-3
+platform-10.7.193-33platform-config-10.7.87-7","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/20/Orchestration Zip:http://os-delivery-nexus:8081/repository/att.yum.snapshot/com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230724.131831-18-src.zip","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205","
+NA",NA,TRUE,7/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.12,D1,OC,CDEX-244498 ; CDEX-243905,"
+OCHF#86
+","
+NA","
+NA","
+27082346258
+",NA,TRUE,7/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.12,D1,OH,NA,"
+OHHF#43
+","
+NA","
+NA","
+2cce17907da
+",NA,TRUE,7/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.12,D1,OC,NA,"
+CareHF#88
+","
+NA","
+NA","
+b6824c4c6c4
+",NA,TRUE,7/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.12,R1,RTB,CDEX-240662 CDEX-240746,"
+RTBHF#92
+","
+NA","
+NA","
+df0cb92bb8a
+",NA,TRUE,7/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.13,MMap,MMAP,CDEX-243569 CDEX-244259,"
+?NA
+","
+?No
+","
+?To fix this defect DevOps needs to increase webUI pod memory to 32 GB.
+",,,TRUE,7/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.13,MMap,MMAP,CDEX-242015,"
+Yes","
+?No
+","
+Below build from core needs to be deployed in DR env as well.
+NameTypeLocationTx3Microserviceshttps://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Ftx3%2Ftags%2Fv9.4.5.2088AuditMicroserviceshttps://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-audit%2Ftags%2Fv9.4.5.2088MGTMicroserviceshttps://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-mgt%2Ftags%2Fv9.4.5.2088Nodered BPMMicroserviceshttps://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-bpm%2Ftags%2Fv9.4.5.2084Nodered AutomationMicroserviceshttps://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.5.3036GUI BuildWindows Application\\cvstor\Apps-Versions\Releases\9.4.5\MoneyMap\Build   2088 - 25072023_1818\
+","
+NA",NA,TRUE,7/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.13,NEO,OUA,CDEX-244144,"
+attbsse-aua-10.4.21-prd15.5
+ms360-security-10.7.79-25
+nap-common-10.6.368
+persistence-10.7.242-3
+platform-10.7.193-33platform-config-10.7.87-7","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/21/ Orchestration Zip:
+http://os-delivery-nexus:8081/repository/att.yum.snapshot/com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230726.094759-19-src.zip
+","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205
+","
+NA",NA,TRUE,7/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.13,BriteBill,BriteBill,CDEX-242514,"
+NA","
+NA","
+Please perform template patching after classic deployment, per attached doc.
+","
+Platform hybrid release package
+2.224.4.",NA,TRUE,7/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.14,D1,OC,NA,"
+OCHF#87
+","
+NA","
+NA","
+72bb409d403
+",,TRUE,7/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.14,D1,OH,CDEX-241690,"
+OHHF#45
+","
+NA","
+NA","
+c2184c2d253
+",,TRUE,7/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.14,D1,OC,NA,"
+CE HF#11
+","
+NA","
+NA","
+579d491d782
+",,TRUE,7/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.14,R1,RTB,CDEX-242261,"
+RTBHF#94
+","
+NA","
+NA","
+38bc8649a62
+",,TRUE,7/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.14,D1,OC,CDEX-244588,"
+NA","
+productorder-wrappe:15.5.8
+","
+NA","
+5aa96a46760
+",NA,TRUE,7/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.15,MMap,MMAP,CDEX-241577,"
+?No
+","
+?15.5.21
+","
+?To fix this defect retention period of the OUTPUT table has been changed to 120 days.
+",,,TRUE,7/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.15,MMap,MMAP,CDEX-240519,"
+?No
+","
+?15.5.21
+","
+?To fix this defect retention period of the Input files and OUTPUT table has been changed to 360 days.
+",,,TRUE,7/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.15,R1,RTB,disabling atnt-eventValidator,"
+NA","
+NA","
+Deployment instruction:
+Delete the collection      from rtb couchbasertb_cust_persist.atnt.eventvalidatorUninstall ms      atnt-eventValidatorIn Jenkins add parameterRUN_EVENTVALIDATOR(default value will be false)Run RTB pipeline and verify if event validator is not getting deployed.
+","
+242b3339c3f
+",NA,TRUE,7/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.15,NEO,OSO,CDEX-233407 and  BSSE-78731 - BULK API for TADA,"
+oni-federation- 1.0.699-48
+onsi-2.0.1461-52
+ops-ui-1.0.837-14
+run-time-catalog-1.0.289-23
+persistence-10.7.242
+platform-10.7.193-53
+platform-config-10.7.87
+ms360-security-10.7.79-25nap-common-10.6.349-3","
+Orchestration Zip: http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support1-SNAPSHOT/att-orchestration-10.4-Support1-20230727.171803-13-src.zip
+
+Storage Build :  http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/178/
+Please add the following mapping in att-dop override file -external:    id: InsINS
+  internal:
+    id: UI:insight
+ -external:
+    id: TADA_API_fulfillment
+  internal:
+    id: TADA_API_fulfillment Please also enable the bulk api by adding following changes in onsi override file:- onsi-bulk-api:  enabled: true
+ Additional changes as required below :- 
+Keyspace in Cassandra has to be created as below :
+CREATE KEYSPACE IF NOT EXISTS bulk_api_management WITH replication = {'class':'SimpleStrategy', 'replication_factor': 1} }  AND durable_writes = true;
+
+ 
+CREATE TABLE IF NOT EXISTS bulk_api_management.batch_request_data(batch_id text, batch_request_id text, request_data text, PRIMARY KEY (batch_request_id, batch_id));
+ 
+CREATE TABLE IF NOT EXISTS bulk_api_management.batch_metadata(batch_id text, batch_request_id text, status text, request_metadata text, PRIMARY KEY (batch_request_id, batch_id));
+ 
+Changes in ONSI override :
+ 
+global:
+  oni:
+    kafka:
+      hosts:""<Kafka-Host:Kafka-Port>""
+ 
+onsi:
+  onsi-bulk-api:
+    enabled: true
+    pullPolicy: Always
+    app:
+      config:
+        cassandra:
+       host:""<Cassandra-Host>""
+        port:<Cassandra-Port>
+       createSchema: ""false"" ","TLC Version:  10.4.323-Support1
+
+Reference Images:
+ATT MSs Image: 10.4-Support1-SNAPSHOT-119
+Customization Image:  10.4-Support1-SNAPSHOT-223
+ONI Image: 10.4-Support1-SNAPSHOT-20
+Reference Env:
+Master IP = 10.247.25.15
+Node1 IP = 10.247.25.35
+Chart Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/33/
+Image Backup Build : 
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/273/","
+NA",NA,TRUE,7/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,NA,"
+NA","
+NA","
+Uninstall below listed MSs and also delete associated resources (if any**):
+error-management
+highvolumeorder-subdomain
+highvolumeorder-highvolumeorder
+highvolumeorder-stepintegration
+pa-subdomain
+pa-proposalandagreement","
+7f4adb21c7b
+e0635d4b1bf
+d0f94936ed3
+",NA,TRUE,7/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.15,R1,RTB,CDEX-241880,"
+RTBHF#96
+","
+NA","
+NA","
+0c5605a9f2a
+",NA,TRUE,7/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.17,NEO,OSO,CDEX-245715,"
+oni-federation- 1.0.699-48
+onsi-2.0.1461-52
+ops-ui-1.0.837-14
+run-time-catalog-1.0.289-23
+persistence-10.7.242
+platform-10.7.193-53
+platform-config-10.7.87
+ms360-security-10.7.79-25nap-common-10.6.349-3
+","
+Orchestration Zip: http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support1-SNAPSHOT/att-orchestration-10.4-Support1-20230728.214941-14-src.zip
+
+Storage Build :http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/181/ (In-Progress)
+","
+TLC Version:   10.4.325-Support1
+Reference Images:
+ATT MSs Image: 10.4-Support1-SNAPSHOT-119
+Customization Image:   10.4-Support1-SNAPSHOT-224 
+ONI Image:  10.4-Support1-SNAPSHOT-20
+Reference Env:
+Master IP = 10.247.25.15Node1 IP = 10.247.25.35
+
+
+
+Chart Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/34/
+ 
+Image Backup Build : http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/274/
+
+","
+NA",NA,TRUE,7/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.16,C1,C1,CDEX-241995,"
+C1 HF#17","
+NA","
+NA","
+9ec74c143c2
+",NA,TRUE,7/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.16,D1,OC,NA,"
+OC HF#88","
+NA","
+NA","
+4dc8a13bea3
+",NA,TRUE,7/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.16,D1,OC,NA,"
+MPP HF#125","
+NA","
+Note: All3 PLs should be executed inInstall
+
+Mode ONLY.
+","
+2e9b7ddeff6
+",NA,TRUE,7/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.16,R1,RTB,CDEX-245730 CDEX-245627,"
+RTB HF#97","
+NA","
+NA","
+53de3f1d26a
+",NA,TRUE,7/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.16,D1;#R1;#C1,OC;#C1;#RTB;#OH,XDCR fix from production,"
+NA","
+NA","
+NA","
+c1db0d58dd6
+",NA,TRUE,7/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.17,MMap,MMAP,CDEX-237238,"
+?No
+","
+?15.5.15
+","
+?Defect has been fixed to avoid null values.
+","
+NA",NA,TRUE,8/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.17,D1,OC,BSSE-73901,"
+?No
+","
+NA","
+NA","
+eb2f60ab694
+",NA,TRUE,8/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.17,C1;#R1;#D1,OC;#OH;#C1;#RTB,Baseline ED HF#124,Baseline ED HF#124,"
+NA","
+Note: Please make sure that latest CRD branch of cluster have CRD's versions equals to/ higher versions are also fine.
+ms-lifecycle-operator-prerequisites:""1.23.27""
+postgres-service-broker-prerequisites:""1.1.16""
+couchbase-service-broker-prerequisites:""1.6.17""
+elasticsearch-service-broker-prerequisites:""1.8.10""
+kafka-service-broker-prerequisites:""1.5.24""
+service-catalog:""1.2.21""
+service-catalog-prerequisites:""1.2.21""
+cb-kafka-connector-operator-prerequisites:""2.13.9""
+amd-apigw-pre-requisites-stack:""2.9.4""
+domain-router-operator-prerequisites:""1.7.6""
+fndsec-idm-operator-helm-pre-requisites:""2.7.8""
+ Artifacts DD version:
+  MS360_FND_GLOBAL_CONFIG_DD_VERSION: 1.5.12
+  MS360_FND_PKI_DD_VERSION: 2.4.9
+  MS360_PLT_MILCY_DD_VERSION: 1.23.27
+  MS360_FND_KMS_CONFIG_DD_VERSION: 1.2.1
+  MS360_PLT_PSB_DD_VERSION: 1.1.16
+  MS360_PLT_CSB_DD_VERSION: 1.6.17
+  MS360_PLT_ESB_DD_VERSION: 1.8.10
+  MS360_PLT_KSB_DD_VERSION: 1.5.24
+  MS360_PLT_SMSB_DD_VERSION: 1.1.4
+  MS360_FND_IDM_DD_VERSION: 2.12.20
+  MS360_FND_SSO_DD_VERSION: 4.19.9
+  MS360_FND_EM_DD_VERSION: 1.4.2
+  MS360_PLT_NF_SANITY_DD_VERSION: 1.10.5
+  MS360_PLT_CBES_CONNECTOR_DD_VERSION: 1.11.12
+  MS360_FND_CBKC_DD_VERSION: 2.13.12
+  MS360_FND_DS_DD_VERSION: 2.3.1
+  MS360_FND_LD_DD_VERSION: 2.4.9
+  MS360_FND_MPM_DD_VERSION: 1.2.15
+  MS360_PLT_SERVICE_CATALOG_DD_VERSION: 1.2.21
+  MS360_FND_OSM_DD_VERSION: 2.4.3
+  MS360_PLT_PGI_VERSION: 1.2.4
+  MS360_FND_AUDIT_MS_VERSION: 2.2.7
+  MS360_FND_API_OPERATOR_VERSION: 1.4.18
+  MS360_FND_AMDOCS_API_MS_DD_VERSION: 1.1.12
+MS360_FND_BUSINESS_ROLE_HIERARCHY_DD_VERSION: 1.2.2
+  MS360_FND_SECURITY_CONTEXT_DD_VERSION: 1.2.3
+  KAFKA_ACL_HELM_VERSION: 0.1.14
+Note: You can find .tar.gz/artifacts inside DD","
+0e59b1f38b9
+",NA,TRUE,8/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.17,NEO,OUA,CDEX-246420,"
+attbsse-aua-10.4.24-prd15.5
+ms360-security-10.7.79-25
+nap-common-10.6.368
+persistence-10.7.242-3
+platform-10.7.193-33platform-config-10.7.87-7","
+Build:
+http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/24/
+Orchestration Zip:
+http://os-delivery-nexus:8081/repository/att.yum.snapshot/com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230801.170802-22-src.zip","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205",NA,NA,TRUE,8/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.18,D1,OH,BSSE-79039,"
+?NA
+","
+?shippingorder-bridge : 15.5.14
+","
+?NA
+","
+?7d04f2a30dc
+
+44dd2060013
+",NA,TRUE,8/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.18,D1,OC,BSSE-66547,"
+NA","
+NA","
+NA","
+2673e8d6211
+",NA,TRUE,8/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.18,NEO,OSO,BSSE-78731,"
+oni-federation- 1.0.699-48
+onsi-2.0.1461-59
+ops-ui-1.0.837-14
+run-time-catalog-1.0.289-23
+persistence-10.7.242
+platform-10.7.193-53
+platform-config-10.7.87ms360-security-10.7.79-25
+nap-common-10.6.349-3","
+NA","
+Reference Env:
+Master IP = 10.247.25.15
+Node1 IP = 10.247.25.35
+Note :-Only new onsi chart version updated for bulk api issue.
+","
+NA",NA,TRUE,8/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.18,BriteBill,BriteBill,CDEX-243862 CDEX-243467 CDEX-243774,"
+NA","
+NA",Platform hybrid release package: 2.224.6.,"
+a7a8ee8e508
+",NA,TRUE,8/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.19,R1,RTB,CDEX-240746,"
+NA","
+NA","
+NA","
+bb0bb516258
+",NA,TRUE,8/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.19,R1,RTB,CDEX-244949,"
+RTB HF#100","
+NA","
+NA","
+a4a6656c9a4
+",NA,TRUE,8/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.19,D1,OC,NA,"
+OC HF#89","
+NA","
+NA","
+6bf417ef220
+",NA,TRUE,8/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.19,D1,OC,NA,"
+Care HF#90","
+NA","
+NA","
+4d9cfd2b282
+",NA,TRUE,8/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.19,NEO,OSO,1184796-072023,"
+oni-federation-1.0.699-52
+onsi-2.0.1461-66
+ops-ui-1.0.837-14
+run-time-catalog-1.0.289-23
+persistence-10.7.242
+platform-10.7.193-53
+platform-config-10.7.87ms360-security-10.7.79-25
+nap-common-10.6.349-3","
+NA","
+Reference Env:
+Master IP = 10.247.25.15Node1 IP = 10.247.25.35
+Note :-Only new onsi  andoni-federation chart versions have been updated for the CC -1184796-072023.
+","
+NA",NA,TRUE,8/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.19,D1,OC,NFT - STS URL fix for asm-services-cloud,"
+NA","
+NA","
+NA","
+f003f77780d
+",NA,TRUE,8/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.19,BriteBill,BriteBill,CDEX-247195,"
+NA","
+NA","1.      The fix in the first topic is related to issues faced on SNPX after switch for classic deployment. 
+2.      The fix in the second topic is referent to this defectCDEX-247195
+
+3.      The fix in the third topic is related to adoption of FND core case 1184507-071823","1. As part of the core adoption of 22.12 these RABBITMQ variables names were changed. DevOps should update the same variables in the techops-env-variables.sh file.
+
+Commit id -8d918c63f2c 
+2. Fix for cb operator crashloop pod.
+Commit id -a4ed0fea3b9
+
+3. Fix for Export MS's serviceinstances.
+Commit id -01e7c87cb0c",NA,TRUE,8/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.20,MMap,MMAP,CDEX-245801,No,"
+15.5.22
+","
+Rule BQ029_1 definition has been corrected.
+","
+NA",NA,TRUE,8/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.20,BriteBill,BriteBill,CDEX-240312,"
+NA","
+NA","
+Platform hybrid release package: 2.224.7","
+693236887da
+",NA,TRUE,8/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,D1,OC,CDEX-247189,"
+NA","
+async-converter:15.5.9","
+NA","
+0eb11e0236f
+",NA,TRUE,8/7/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,MMap,MMAP,CDEX-245801,No,15.5.23,"
+Rule BQ029_1 definition has been corrected.
+","
+NA",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,MMap,MMAP,CDEX-246522,No,15.5.22,"
+Defect has been fixed to avoid null values by creating indexes.
+","
+NA",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,NEO,OUA,CDEX-248083,"
+?Platform Charts:
+ 
+attbsse-aua-10.4.26-prd15.5
+ms360-security-10.7.79-33             
+nap-common-10.6.349-40            
+persistence-10.7.242-8        
+platform-10.7.193-53       platform-config-10.7.87-10       
+","
+?
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/26/
+ 
+Orchestration Zip:
+ 
+http://os-delivery-nexus:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230807.154107-24-src.zip
+","
+?TLC Version:
+ATT MSs Image: 
+Customization Image:
+ ONI Image:
+Reference Env:
+ Master IP=10.247.187.150
+ Node1 IP =10.247.187.145
+Backup Build:
+Storage Build:
+","
+?NA
+",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,C1,C1,NA,"
+C1 HF#18","
+NA","
+NA","
+381512311c8
+",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,D1,OH,NA,"
+OH HF#46","
+NA","
+NA","
+f281989b9b2
+",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,R1,RTB,NA,"
+RTB HF#102","
+NA","
+NA","
+d4f641d1981
+",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,D1,OC,CDEX-228091 ;  CDEX-236619,"
+Care HF#93","
+NA","
+NA","
+09c923ba958
+",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,D1,OC,NA,"
+Common Services HF#6
+","
+NA","
+NA","
+4d15247cc44
+",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,D1,OC,NA,NA,"
+NA","
+Instructions before performing below commit:
+Uninstall below list of MSs and also delete resources      associated with these MSs. All of these MSs come underexperience-ms subdomain:pi-experiencepod-experience     productconfigurator-experienceshoppingcart-experienceproduct-order-experienceresourcemanagement-experience","
+03bc313b1b8
+",NA,TRUE,8/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.22 - day1,D1,OH,NA,"
+?NA
+","
+?NA
+","
+?Instruction before performing below commit: 
+ Uninstall      below OH Core MS and delete resources associated with this MS.
+ businessactivity-notifycharging
+","
+?8f958be802f
+",NA,FALSE,8/6/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.22 - day1,D1,OC,CDEX-247480,"
+NA","
+NA","
+In PET1 , PET2, SNP and PROD envs:
+in cloudera manager under Kafka Broker Configuration  , setMaximum Process File Descriptors : 65534
+ https://kafka-att-v2-pet1-node1.petgrp1.attbsse.amdocs.com:7183/cmf/services/1546332570/config#filterScope=Kafka%20Broker&q=descriptor&filterCategory=Performance
+
+See attached picture for reference","
+NA",NA,FALSE,8/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.22 - day1,D1,OC,CDEX-234523,"
+NA","
+NA","
+Delete(DROP) all primariy indexes which having the name `#primary` from all couchbases (d1,c1,rtb and custom)
+Through couchbase UI
+
+ run below query for listing all primary indexes that needs to be deleted -
+
+ SELECT *
+FROM system:indexes
+WHERE is_primary = TRUE AND name = ""#primary"";
+
+
+RN is applicable for PET,SNP and PROD envs only (envs that has index replication )
+
+
+","
+NA",NA,FALSE,8/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.22,BriteBill,BriteBill,CDEX-248465,"
+NA","
+NA","
+To enable LDAP on containerized Couchbase.
+
+Post steps once changes done – PFA TO-How to setup LADP couchbase-090823-114453.pdf file
+
+
+
+","
+f4f3fcd8c8f
+",day0,TRUE,8/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.22 - day1,D1,OC,CDEX-247189,"
+Mass HF#21","
+NA","
+NA","
+dc7390f9877
+",NA,FALSE,8/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.22 - day1,D1,OC,NA,"
+OC HF#90","
+NA","
+NA","
+63b22e0cad4
+",NA,FALSE,8/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.22 - day1,R1,RTB,NA,"
+RTB HF#103","
+NA","
+NA","
+48ce0d82012
+",NA,FALSE,8/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.21,iPaaS,SkyFM,CDEX-247940,"
+?NA
+","
+?Module :
+   Bsse-Smart :    bsse-fallout-management : 5470
+","
+?NA
+","
+?d49666c5188
+cff27570e93
+939b0eec7b5
+92610ad7c42
+",NA,TRUE,8/6/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.23,MMap,MMAP,CDEX-248850,"
+?No
+","
+?15.5.24
+","
+?Missing entry was populated in gui_ref_inspection table.
+","
+?NA
+",day0,TRUE,8/6/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.24,BriteBill,BriteBill,"CDEX-243147, CDEX-247308","
+?NA
+","
+?NA
+","
+?
+1.Please perform template patching after classic deployment,
+
+
+2. Please execute this sql script after classic deployment in mysql db.
+Note: This query has some updates from the core drop
+ & a small correction for the sql query provided in 15.5.09 Patch
+
+
+
+","
+cb5243e386e
+
+ Platform hybrid release package
+2.224.8
+",NA,TRUE,8/6/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.23,C1,C1,CDEX-247475,"
+?NA
+","
+catalogoneintegration-outboundfilte : 15.5.22
+","
+?NA
+","
+?6127f645c89
+",day0,TRUE,8/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.24,BriteBill,BriteBill,CDEX-249596,"
+?NA
+","
+?NA
+","
+?Target ENV -  SNP/PROD
+
+Addition to bit bucket commit please execute attached couchbase query to fix existing document expiration ..
+
+","
+?f15a1fc3588
+",NA,TRUE,8/13/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.23,D1,OH,CDEX-245366,"
+?HF#47
+","
+?NA
+","
+?NA
+","
+?b8f26f29396
+",day0,TRUE,8/13/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.23 - Day1,MMap,MMAP,RTB token secret key Updated,"
+NA","
+NA","
+RTB token secret key got expired. ATT has provided new secret key as below which needs to be configured in all NPRD environments. For Prod, SNP01 and SNPx it is already configured through CR CHG000008631887 on 8/14.
+ 
+31697-MMap-RTB-NONPROD-Consume
+               Application (client) ID: 3e52f5b2-36c1-4663-8fbd-4198804dc4da
+              Directory (tenant) ID: e741d71c-c6b6-47b0-803c-0f3b32b07556
+MMap Non Prod to RTB Value
+              Ay78Q~0OkfldZjZdKfqrcSh316LCKeLVYLfmnaiZ
+MMap Non Prod to RTB Secret ID              5b486d7a-dafc-4d43-9c38-249edee081f2","
+NA",NA,FALSE,8/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.24,MMap,MMAP,CDEX-249809,"
+NA","
+NA","
+As per recommendation from PET1 team, we need to upgrade heap memory from 10 GB and 12 GB. This is currently observed in PET1 only due to huge data load in testing.
+POD_NAME: pet-mm-attmm-tx3-8456b94f94-bhwp7 (v1:metadata.name)","
+NA",NA,TRUE,8/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,NEO,OSO,ITR16.3 Baseline,"
+oni-federation-1.0.699-52
+onsi-2.0.1461-66
+ops-ui-1.0.837-15
+run-time-catalog-1.0.289-23
+persistence-10.7.242
+platform-10.7.193-53
+platform-config-10.7.87ms360-security-10.7.79-25
+nap-common-10.6.349-3","
+Orchestration Zip: http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support0-SNAPSHOT/att-orchestration-10.4-Support0-20230808.233542-2-src.zip
+Storage Build: (failed)
+http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/199/
+","
+TLC Version:   10.4.349-Support0
+Reference Images:
+ATT MSs Image:  10.4-Support0-SNAPSHOT-113
+Customization Image:  10.4-Support0-SNAPSHOT-263
+ONI Image: 10.4-Support0-SNAPSHOT-17
+Reference Env:
+Reference Env:
+Master IP = 10.247.21.185
+Node1 IP = 10.247.21.190Chart Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/36/
+Image Backup Build:(failed)http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/277/","
+NA",NA,TRUE,8/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.24,D1;#R1,OC;#OH;#RTB,CDEX-238148,"
+NA","
+NA","
+Move folder applicationcontext-subdomain   from profileValues/customEnvType/nft/products/ec to profileValues/customEnvType/nft/products/csr","
+ef7a317d157
+",NA,TRUE,8/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,NEO,OUA,ITR16.3 Baseline CDEX-247528 CDEX-249519 CDEX-252269 BSSE-79714,"
+attbsse-aua-10.4.2631-develop          
+ms360-security-10.7.88-20                 
+nap-common-10.6.368 -16               
+persistence-10.7.279-10         
+platform-10.7.225-38           platform-config-10.7.96-4","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/develop/2631/
+Orchestration Zip: http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-develop-SNAPSHOT/orchestration-10.4.0.0.0-develop-20230821.204533-7-src.zip
+","
+Reference Env:
+Master IP =10.247.146.155
+Node1 IP =10.247.146.206
+OUA Simulators:att_simulators_16.3.tar
+","
+NA",NA,TRUE,8/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.24,R1,RTB,CDEX-245724 ; CDEX-247306 ; CDEX-248903 CDEX-246923,"
+RTB HF#107","
+NA","
+NA","
+17ba942f973
+",NA,TRUE,8/16/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.25,MMap,MMAP,CDEX-247965,"
+?NA
+","
+15.5.25
+","
+?Entities configured correctly for below rulesBQ001_1, BQ001_2, BQ001_3, BQ001_4, BQ004_3, BQ007_1, BQ007_2, BQ015_5, BQ29_1, BQ21_11, BQ21_22, BQ21_4
+","
+?NA
+",Day1,TRUE,8/17/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.26-day1,MMap,MMAP,CDEX-237202 CDEX-237207,"
+NA","
+15.5.25
+","
+Parameter value for solution date of Audit phase report logic has been modified
+","
+NA",NA,FALSE,8/17/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.26-day1,R1,RTB,CDEX-233580,"
+NA","
+NA","
+NA","
+161cea8134b
+",NA,FALSE,8/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.26,D1,OC,CDEX-251024,"
+NA","
+NA","
+NA","
+39514fde8a3
+
+3e23b324703
+
+",day1,TRUE,8/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.26-day1,NEO,OSO,CDEX-250614,"
+oni-federation-1.0.699-52
+onsi-2.0.1461-66
+ops-ui-1.0.837-15
+run-time-catalog-1.0.289-23
+persistence-10.7.242
+platform-10.7.193-53
+platform-config-10.7.87ms360-security-10.7.79-25
+nap-common-10.6.349-3","
+NA","
+Reference Env:
+Master IP = 10.247.21.185Node1 IP = 10.247.21.190
+Note :-Only new ops-ui chart versions have been updated for the CC -1156984-080723.
+","
+NA",NA,FALSE,8/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.27,R1,RTB,NA,"
+?HF#111
+","
+?NA
+","
+?NA
+","
+?be138148f0b
+",,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.27,D1,OH,CDEX-251362,"
+?HF#48
+","
+?NA
+","
+?NA
+","
+?e22b7e8c192
+",,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.28,MMap,MMAP,CDEX-251691,"
+?NA
+","
+?15.5.26
+","
+?During Prod PI15 upgrade there was gap to deploy new audit point and audit phase configuration. After deployment of given VM ID i.e. 15.5.26, new configuration provided ATT focal will be in place.
+","
+?NA
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.28,MMap,MMAP,CDEX-251815,"
+?NA
+","
+?NA
+","
+?To fix the issue memory configuration of TX3 pod requires to increase.
+Limits:
+     CPU:     3
+     Memory:  18G
+Requests:
+     CPU:     1
+     Memory:  12G
+ 
+Please increase  minimum replica to 3 from 1 and maximum replica to 7.
+","
+?NA
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.28,iPaaS,Sky-View,BSSE-78763  BSSE-78765 + CDEX-237813 BSSE-80678 BSSE-80679,"
+?NA
+","
+?NA
+","
+?NA
+","
+?588eab69626
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.29,D1,OC,CDEX-238369,"
+?HF#94
+","
+?NA
+","
+?NA
+","
+?748d06f9305
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.29 - CANCELLED,NEO,OUA,CDEX-252340,"
+?Platform Charts:
+ 
+attbsse-aua-10.4.29-prd15.5
+ms360-security-10.7.79-33             
+nap-common-10.6.349-40            
+persistence-10.7.242-8        
+platform-10.7.193-53       platform-config-10.7.87-10       
+","
+?Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/29/
+ 
+Orchestration Zip:
+ 
+http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230818.115917-2-src.zip
+","
+?TLC Version:
+ATT MSs Image: 
+Customization Image:
+ ONI Image:
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205
+Backup Build:
+Storage Build:
+","
+?NA
+",NA,FALSE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.29,BriteBill,BriteBill,"CDEX-247513, CDEX-247517 ","
+?NA
+","
+?NA
+","
+?NFT recommendationsNote : These changes are only applicable on multimode envs (NFT, SNPX, PROD, DR envs) 
+","
+?9871dbd72fc, 
+3c80cd229d0,  
+0d5eff0fb01 
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.29,R1,RTB,CDEX-251001,"
+?NA
+","
+?customerbill-enrichcustomerbill : 15.5.5
+","
+?NA
+","
+?c0cffc383b1
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.30,D1,OH,CDEX-251832,"
+?HF#49
+","
+?NA
+","
+?NA
+","
+?20b4f45bc70
+
+
+Additional fix : cc5b7d9e114 (SOM/SVO rebrandings values)
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.29,R1,RTB,CDEX-251422 CDEX-247630,"
+?HF#114
+","
+?NA
+","
+?NA
+","
+?dac84dd56f1
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.29,MMap,MMAP,CDEX-219265,"
+?NA
+","
+?15.5.27
+","
+?To fix the issue ->Automated the stored procedure SP_DS_RP_MTI_SLA, Disable the bq21_1 and bq21_2 rules.
+ 
+Also, we have to deploy below NR ATM Docker image on PRD, NPRD and DR environment of PI15.
+ https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.5.3068
+","
+?NA
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.31,D1,OH,CDEX-252767,"
+?NA
+","
+?shippingorder-bridge : 15.5.33
+","
+?NA
+","
+?8da58bb86d2
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,R1,RTB,CDEX-251001,"
+?NA
+","
+?customerbill-enrichcustomerbill : 16.3.2
+","
+?NA
+","
+24fba4a4006
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.32,MMap,MMAP,CDEX-252631,"
+?NA
+","
+?15.5.27
+","
+?To fix this issue we need to deploy “Commented additional “Input_file.WriteToError” in “DS_BB_INVOICES” loader script to avoid writing logs to database.”
+","
+?NA
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,MMap,MMAP,CDEX-251879,"
+?NA
+","
+?16.2.9
+","
+?To fix this issue we need to deploy VM minor version 16.2.9 along with below mentioned NR ATMDocker image.https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.6.3068
+","
+?NA
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC;#OH;#RTB,NA,"
+?NA
+","
+?NA
+","
+??These are CRD changes - Open source upgrade of yaml
+Not specific to any specific ITRapply in PET and PROD CRD files
+","
+?c52af69bc3b
+1764dbfcfe4
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.32,D1,OC,CDEX-255214 ?Pre-requisites as per Core GOT Guidelines for Blue 22.12 Env Preparation (For PET2),"
+?HF#91
+","
+?NA
+","
+NA","
+?02d3aecfb1f 
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.32,D1,OC,CDEX-255214 ?Pre-requisites as per Core GOT Guidelines for Blue 22.12 Env Preparation (For PET2),"
+?MPP HF#126
+","
+?NA
+","
+Note: All 3 PLs should be executed in Install
+Mode ONLY.","
+?14f5eec0a2e
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.32,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-255214 ?Pre-requisites as per Core GOT Guidelines for Blue 22.12 Env Preparation (For PET2),"
+?Baseline ED: 22.09.01.125
+","
+?NA
+","
+NA","
+?b58675a857f
+",NA,TRUE,8/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33,D1,OC,CDEX-252217,"
+?NA
+","
+?NA
+","
+?NA
+","
+?64e550ad28f
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,CDEX-252217,"
+?NA
+","
+?NA
+","
+?NA
+","
+?837b3280607
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OH,CDEX-252767,"
+?NA
+","
+?shippingorder-bridge : 16.4.7
+","
+?NA
+","
+?4e8d000742f
+",NA,TRUE,8/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1;#C1;#R1,OC;#C1;#OH;#RTB,EDs Adoption for master - Green - GOT on PET2,"
+BASELINE_ED:22.12.01.64
+","
+NA","
+EDs Adoption for master - Green - GOT on PET2","
+49c74702986
+
+6b7bbfee4ad",NA,TRUE,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33,NEO,OUA,CDEX-252340 CDEX-252918,"
+attbsse-aua-10.4.30-prd15.5
+ms360-security-10.7.79-33
+nap-common-10.6.349-40
+persistence-10.7.242-8
+platform-10.7.193-53platform-config-10.7.87-10","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/30/Orchestration Zip: http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230825.121004-3-src.zip","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205","
+NA",NA,TRUE,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33 - On Hold!!!,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-251434,"
+?Baseline ED: 22.09.01.126
+","
+?NA
+","
+NA","
+bbfb19864a5
+",NA,FALSE,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,BriteBill,BriteBill,ITR16.3 Baseline,"
+BB classic version -2.240.5.
+","
+NA","
+Please perform template patching after classic deployment,We also have some MySQL DB changes,
+Please execute attached sql script for the same.","
+commit -ca4ea81a2fb
+SKY-FM Fallout Management Integration commit -75f45f7f73f
+ IB dashboard module change commit - d1042d2183c",NA,TRUE,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,C1,C1,ITR16.3 C1 Zip Files,"
+NA","
+NA","
+
+BP: cb-export/CatalogOne_BackUps/PI16/ITR16.3/Drop_23_03/Business_Parameter_c1mst2303_10-08-2023_02_49_20_Drop23_03_PI16.3.zipFD:cb-export/CatalogOne_BackUps/PI16/ITR16.3/Drop_23_03/FD_c1mst2303_10-08-2023_02_49_20_Drop23_03_PI16.3.zip","
+NA",,TRUE,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,C1,C1,ITR16.2 Baseline,"
+C1HF12
+","
+NA","
+NA","
+accac1aba62
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,ITR16.2 Baseline,"
+OCHF#60
+","
+NA","
+NA","
+227754eb4ea
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OH,ITR16.2 Baseline,"
+OHHF#23
+","
+NA","
+NA","
+b4734fc7633
+cef016f0fa2
+50903b785b9
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,ITR16.2 Baseline,"
+CE HF#4
+","
+NA","
+NA","
+07fa2f95695
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,ITR16.2 Baseline,"
+MASSHF#10
+","
+NA","
+NA","
+9e8dde07505
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,ITR16.2 Baseline,"
+CareHF#30
+","
+NA","
+NA","
+8f53d2803f0
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,ITR16.2 Baseline,"
+Common Services HF#1
+","
+NA","
+NA","
+68383a4b835
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,ITR16.2 Baseline,"
+MPP HF#126
+","
+NA","
+Note: All 3 PLs should be executed in Install
+Mode ONLY.","
+b7a902dfecd
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,R1,RTB,ITR16.2 Baseline,"
+RTB HF#37","
+NA","
+NA","
+8ede88ae368
+",NA,,8/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33,R1,RTB,CDEX-252263 CDEX-252489 CDEX-252523 CDEX-251612,"
+RTB HF#116","
+?NA
+","
+NA","
+d7edc67220f
+",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,D1,OC,BSSE-76207,"
+NA","
+NA","
+Drop below two buckets as new buckets will replace with
+this.
+
+oc_cust_persist
+c1_cust_persist","
+NA",NA,FALSE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33,D1,OC,CDEX-245168,"
+NA","
+NA","
+Before running CD  helm uninstall below MSs:
+ engagement-center-application
+case-management-application
+searchmanagement-graphqlexperience
+","
+441dd051ee0
+fac5ac67c3f
+f14513d0507",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,CDEX-245168,"
+NA","
+NA","
+Before running CD  helm uninstall below MSs:
+ engagement-center-application
+case-management-application
+searchmanagement-graphqlexperience
+digitalexp-ui-b2b-app-rel","
+0606f727b92
+b9c678466cc
+5ee9d18b80c",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33,iPaaS,Sky-Force,CDEX-252177,"
+NA","
+o2awf: 7952
+ o2aportalui:7953","
+NA","
+7453e61a173
+",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,iPaaS,Sky-Force,CDEX-252177,"
+NA","
+o2awf:7954
+ o2aportalui:7955","
+NA","
+e40f617cb83
+",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,D1,OC,NA,"
+NA","
+NA","
+Uninstall below listed MSs and also delete associated resources (if any**):
+
+error-management
+highvolumeorder-subdomain
+highvolumeorder-highvolumeorder
+highvolumeorder-stepintegration
+pa-subdomain
+pa-proposalandagreement","
+7f4adb21c7b
+e0635d4b1bf
+d0f94936ed3
+",NA,FALSE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1;#R1,OC;#OH;#RTB,CDEX-238148,"
+NA","
+NA","
+Move folder applicationcontext-subdomain   from
+profileValues/customEnvType/nft/products/ec to
+profileValues/customEnvType/nft/products/csr","
+c821d7e62b8
+",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33,NEO,OUA,CDEX-252400,"
+NA","
+NA","
+Update HSS Group ID field from OUA “Activation configuration” GUI for HSS Interface 1 and HSS Interface 2 from LBL to HC7.
+ 
+Also run the below update statement.
+ 
+UPDATE poolid_2_leastutilizedhss_lookup SET hssgroupid='HC7';
+COMMIT;","
+NA",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.33,D1,OC,CDEX-252968,"
+NA","
+NA","
+NA","
+d28867189d4
+",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.00,D1,OC,CDEX-252968,"
+NA","
+NA","
+NA","
+72637762d06
+",NA,TRUE,8/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.34,D1,OH,CDEX-251362 CDEX-253408,"
+NA","
+NA","
+NA","
+3ae7b355236
+",NA,TRUE,8/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.01,D1,OH,CDEX-251362 CDEX-253408,"
+NA","
+NA","
+NA","
+abc1ce01153
+",NA,TRUE,8/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.01,D1,OC,1183318-070623,"
+NA","
+NA","
+1. please check if you have platform-shared-lib branch 1.37.5 on site, If not copy branch from DVC BitBuckethttps://amobucket:7990/projects/AMO/repos/platform-shared-lib/browse?at=refs%2Fheads%2F1.37.5
+ 2. Go to Jenkins platform-cd pipeline of 2303 and change Jenkins parameter SHAREDLIB_GIT_BRANCH value to 1.37.53. Go to CRD Jenkins pipeline and change their SHAREDLIB_GIT_BRANCH Jenkins parameter to 1.37.5","
+NA",NA,TRUE,8/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.34,R1,RTB,CDEX-251394,"
+RTB HF#117","
+NA","
+NA","
+7dec63e718b
+",NA,TRUE,8/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.01,R1,RTB,CDEX-251394,"
+RTB HF#117","
+NA","
+NA","
+db33880a8bc
+",NA,TRUE,8/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.34,D1,OC,CDEX-251390,"
+
+OC HF#96","
+NA","
+NA","
+df86eeaa3a5
+",NA,TRUE,8/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.02,R1,RTB,CDEX-252320 CDEX-250958,"
+RTB HF#39","
+NA","
+NA","
+f0ad84c0c03
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.02,D1,OC,NA,"
+OC HF#63","
+NA","
+NA","
+63b5677480d
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.02,D1,OC,NA,"
+Care HF#31","
+NA","
+NA","
+6765909c4b2
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.35,R1,RTB,CDEX-252360,"
+RTB HF#118
+","
+NA","
+NA","
+121f1a3d21f
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.35,R1,RTB,CDEX-251396,"
+NA","
+NA","
+Step1: Temporary Index to update
+CREATE INDEX customerbill_bill_docType_jobId_idx
+ ON `default`:`rtb_CB1`.`RTBCustomerBill`.`customerbill`(`jobId`,`docId`) 
+ WHERE ((`__docType` = 'CustomerBill') and (`jobId` = 'ApproveCycle'))
+Step2: Get count of impacted docs
+SELECT COUNT(bll.docId) as count
+ FROM `rtb_CB1`.`RTBCustomerBill`.`customerbill` AS bll
+ WHERE bll.__docType=""CustomerBill""
+ AND bll.jobId=""ApproveCycle"";
+Step3: update the doctype
+UPDATE `rtb_CB1`.`RTBCustomerBill`.`customerbill` AS bll
+ SET __docType=""CustomerBillControlDocument""
+ WHERE bll.__docType=""CustomerBill""
+ AND bll.jobId=""ApproveCycle"";
+Step4: drop temp index
+DROP INDEX `customerbill_bill_docType_jobId_idx` ON `default`:`rtb_CB1`.`RTBCustomerBill`.`customerbill`;","
+NA",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.35,R1,RTB,CDEX-252360,"
+NA","
+NA","
+NA","
+9b31467db01
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,R1,RTB,CDEX-252360,"
+NA","
+NA","
+NA","
+f00d63feb31
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.35,D1,OH,CDEX-253659,"
+?NA
+","
+?shippingorder-bridge : 15.5.39
+","
+?NA
+","
+?eef8d452066
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.36,D1,OC,CDEX-251264,"
+?NA
+","
+?catalogoneintegration-outboundfilte : 15.5.24
+","
+?NA
+","
+?f49ae90a6bb
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,D1,OC,CDEX-251264,"
+?NA
+","
+?catalogoneintegration-outboundfilte:16.4.15
+","
+?NA
+","
+?549ff5f78a5 
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,D1,OC,Remove  BS ingress creation,"
+NA","
+NA","
+NA","
+d78dac29d82
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,D1,OH,CDEX-253659,"
+NA","
+shippingorder-bridge:16.4.14
+
+","
+NA","
+da229469732
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.37,R1,RTB,BSSE-69866,"
+?NA
+","
+?NA
+","
+?This change is only for PET/SNP/PROD env (Not for QE env).?
+RN15.5.37 will contain ONLY these changes, no other changes can be taken along with this change.
+Verify if configs are updated post the deployment of RTB pipeline in app-customerbill-billdataextract config map. **This is the first RN to be deployed for the featureBSSE-68250
+","
+?4d2231b27a4
+",,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.39,R1,RTB,BSSE-69868,"
+?NA
+","
+?NA
+","
+
+This change is only for PET/SNP/PROD env (Not for QE env).
+RN15.5.39 will contain ONLY these changes, no other changes can be taken along with this change.
+ We can deploy this RN only after RN15.5.38 is deployed in env. 
+ So, it can be taken in QE/Prod in next deployment window afterRN15.5.38 is deployed.
+ Check if last eventId of FinalizedBill topic is present in FinalizedBill_v4 topic and last eventId of productOrderFutureOrderItemNotification topic is present  in FutureProductOrderItemChangeEventTopic_v4_0  topic. 
+ If yes, then deploy this RN in next deployment window.
+  
+Verify if configs are updated post the deployment of RTB pipeline in app-customerbill-acbrimpactevent and app-customerbill-customerbill config maps
+  ** This is the 3rd RN to be released as part ofBSSE-68250
+","
+?
+974de23f00b
+ e454ed83b83
+",RN15.5.38,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.38,R1,RTB,BSSE-69867,"
+?NA
+","
+?NA
+","
+?
+
+This change is only for PET/SNP/PROD env (Not for QE env).
+RN15.5.38 RN will contain ONLY this change, no other changes can be taken along with this change.
+ We can deploy this RN onlyafter few hours/days/month after RN15.5.37 is deployed. So, it can be taken in PET/SNP/PROD in next deployment window after RN15.5.37 is deployed. 
+Verify if configs are updated post the deployment of RTB pipeline in app-customerbill-acbrimpactevent and app-customerbill-customerbill config maps
+** This is the 2nd RN to be released as part ofBSSE-68250","
+?
+1db0065e62e
+ ca74d3424ef
+",RN15.5.37,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,D1,OC,NA,"
+OCHF#64
+","
+NA","
+NA","
+3020e12e5e8
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,D1,OH,NA,"
+OHHF# 24
+","
+NA","
+NA","
+0c56549a5d3
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,R1,RTB,CDEX-251915 CDEX-252735,"
+RTBHF#40
+","
+NA","
+NA","
+88f665ce56a
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,D1,OC;#C1;#OH;#RTB,NA,"
+MPPversion 127
+","
+NA","
+Note: All3 PLs should be executed inInstall Mode ONLY.
+","
+85c294612f4
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.36,R1,RTB,CDEX-247275,"
+NA","
+customerbill-billpopulation:15.5.7","
+?NA
+","
+cbb5f39181c
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.03,R1,RTB,CDEX-247275,"
+NA","
+
+customerbill-billpopulation:16.4.9","
+?NA
+","
+6b1d205dfde
+",NA,TRUE,8/31/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.40,MMap,MMAP,BSSE-75332,"
+?NA
+","
+?NA
+","
+BSSE-75332 has been developed in ITR 16.4 and was requested to down port to PI15.
+Downported deployment package has been provided as part of below NR ATM docker image. We need to deploy on PROD and DR Env.
+ Below are the details:
+Nexus link :https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-bpm%2Ftags%2Fv9.4.5.221
+","
+?NA
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.40,MMap,MMAP,CDEX-253084,"
+?NA
+","
+15.5.29
+","
+Added a validation to filter data to be inserted on the table DS_RP_BILLING_TIMELINESS
+","
+?NA
+",NA,TRUE,9/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.04,MMap,MMAP,CDEX-253084,"
+?NA
+","
+16.3.8
+","
+Added a validation to filter data to be inserted on the table DS_RP_BILLING_TIMELINESS
+","
+?NA
+",NA,TRUE,9/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.04,MMap,MMAP,CDEX-253687,"
+?NA
+","
+16.3.8
+","
+Changed path on the data source to avoid issues.","
+?NA
+",NA,TRUE,9/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.40,NEO,OSO,CDEX-250951,"
+?NA
+","
+?NA
+","
+Add the following configuration in som-tmf622 Java non proxy host
+som-tmf622-service:
+  tmf622:
+    jvm:
+      options: ""-XX:+UseG1GC -XX:ParallelGCThreads=2 -Dhttp.proxyHost=proxy.nonprod.att.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=proxy.nonprod.att.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=""*.local|*dop-backend|*.amdocs.com|*.attmgmt.attbsse.amdocs.com|*.attbsse.amdocs.com|*.attmgmt.amdocs.cloud|*-ipaas.svc|*.vault.azure.net""|*platform-platform-manager”
+ Note – This HF needs to be applied to all TORCH integrated Env","
+?NA
+",NA,TRUE,9/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.04,NEO,OSO,CDEX-250951,"
+?NA
+","
+?NA
+","
+Add the following configuration in som-tmf622 Java non proxy host
+som-tmf622-service:
+  tmf622:
+    jvm:
+      options: ""-XX:+UseG1GC -XX:ParallelGCThreads=2 -Dhttp.proxyHost=proxy.nonprod.att.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=proxy.nonprod.att.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=""*.local|*dop-backend|*.amdocs.com|*.attmgmt.attbsse.amdocs.com|*.attbsse.amdocs.com|*.attmgmt.amdocs.cloud|*-ipaas.svc|*.vault.azure.net""|*platform-platform-manager”
+ Note – This HF needs to be applied to all TORCH integrated Env","
+?NA
+",NA,TRUE,9/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.40,R1,RTB,CDEX-252319,"
+RTB HF#120","
+?NA
+","
+NA","
+3934cc014bc
+",NA,TRUE,9/2/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.04,D1,OC,NA,"
+OCHF#66
+","
+?NA
+","
+?NA
+","
+7c2f33b2e8d
+",NA,TRUE,9/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.04,R1,RTB,NA,"
+RTBHF#42
+","
+?NA
+","
+?NA
+","
+747ee9652a0
+",NA,TRUE,9/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.35,C1,C1,HPA (Horizontal Pod AutoScaler) - pod replicator,"
+C1 HF#22
+","
+NA","
+NA","
+a7852d6d98f
+",NA,TRUE,9/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.35,D1,OC,HPA (Horizontal Pod AutoScaler) - pod replicator,"
+MPP HF#129
+","
+NA","
+
+Note: All 3 PLs should be executed in Install
+
+Mode ONLY.","
+b8fe0cefc55
+",NA,TRUE,9/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.05,R1,RTB,CDEX- 251001,"
+NA","
+customerbill-enrichcustomerbill:16.4.3
+","
+?NA
+","
+c50852708b1
+",NA,TRUE,9/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,NEO,OUA,ITR16.5 Baseline,"
+attbsse-aua-10.4.2640-develop
+ms360-security-10.7.88-20
+nap-common-10.6.368 -16
+persistence-10.7.279-10
+platform-10.7.225-38platform-config-10.7.96-4","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/develop/2640/
+
+Orchestration Zip: http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-develop-SNAPSHOT/orchestration-10.4.0.0.0-develop-20230904.131559-14-src.zip
+
+","
+
+Reference Env:
+Master IP =10.247.146.155
+Node1 IP =10.247.146.206
+OUA Simulators:att_simulators_16.5.tar
+","
+NA",NA,TRUE,9/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.41,iPaaS,Sky-View;#Sky-Force,BSSE-79673  CDEX-241998,"
+Sky-View
+
+
+
+Sky-Force:o2adb:7983
+
+Sky-Force:o2awf:7984Sky-Force:ogeg:7985
+","
+?NA
+","
+NA","
+b35225203d5
+53f9b3d0689",NA,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.41,D1,OC,CDEX-238148,"
+NA","
+NA","
+NA","
+f167aff54c8
+",C1 2212 HF#22,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.05,D1,OC,CDEX-238148,"
+NA","
+NA","
+NA","
+f459b28c8da
+",C1 2303 HF#15,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.05,D1;#C1,C1,NA,"
+C1HF#15
+","
+NA","
+NA","
+2873a1383fa
+",NA,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.05,D1,OC,CDEX-254772,"
+OCHF#70
+","
+NA","
+NA","
+021cab419d2
+",NA,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.05,D1,OC,NA,"
+OHHF#25
+","
+NA","
+NA","
+407bea4cccd
+",NA,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.05,D1,OC,NA,"
+MPPHF#129
+","
+NA","
+Note: All3 PLs should be executed inInstall Mode ONLY.
+","
+07229b55287
+",NA,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.41,C1,C1,CDEX-238148,"
+C1 HF#22","
+NA","
+NA","
+a7852d6d98f
+",NA,TRUE,9/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.06,R1,RTB,BSSE-76145,"
+NA","
+
+cfm-bridge:16.5.2","
+NA","
+8b403d97c4c
+",,TRUE,9/7/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.42,R1,RTB,CDEX-253482 CDEX-254529 CDEX-252843,"
+RTB HF#125","
+NA","
+NA","
+ca5e08a2875
+",,TRUE,9/7/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.42,iPaaS,iPaaS,CDEX-255397,"
+?NA
+","
+
+?
+ogdb, ogws, ogmon : 4967
+ogesb_adapter : 4968portalui : 4969
+","
+NA","
+?7e3b704933d
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.42,iPaaS,Sky-Force,CDEX-255397,"
+?NA
+","
+?O2adb :  7992
+O2awf :  7993
+Ogeg 7994Portal UI: 7995
+","
+NA","699219b34b7
+",NA,TRUE,8/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.42,iPaaS,Sky-Smart,CDEX-255397,"
+?NA
+","
+bsse-bootstrap 5513
+reconcialiation 5514
+falloutmanagement : 5515bsse-application 5516
+","
+NA","
+?690e2bd3561
+",NA,TRUE,9/7/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.06,BriteBill,BriteBill,CDEX-254800,"
+NA","
+NA","
+Applicable only for multimode envs. i.e.: NFT, SNPx and Prod. ","
+a90793d548f
+",NA,TRUE,9/7/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.06,D1,OH,CDEX-254634,"
+NA","
+Shippingorder-bridge:16.5.5
+","
+NA","
+c686c76f440
+",,TRUE,9/7/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.07,R1,RTB,BSSE-80424,"
+?NA
+","
+?NA
+","
+?NA
+","
+?ca3b2bc4051",NA,TRUE,9/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.07,NEO,OSO,CDEX-252521 CDEX-247967,"
+oni-federation-1.0.699-52
+ onsi-2.0.1461-66
+ ops-ui-1.0.837-15
+ run-time-catalog-1.0.289-23
+ persistence-10.7.242
+ platform-10.7.193-53
+ platform-config-10.7.87
+ms360-security-10.7.79-25
+nap-common-10.6.349-3","
+Storage Build:(failed)http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/199/
+Orchestration Zip: http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support0-SNAPSHOT/att-orchestration-10.4-Support0-20230908.200951-7-src.zip","
+TLC Version:  10.4.372-Support0
+Reference Images:
+ATT MSs Image:  10.4-Support0-SNAPSHOT-119
+Customization Image:  10.4-Support0-SNAPSHOT-269
+ONI Image: 10.4-Support0-SNAPSHOT-20
+Reference Env:
+Master IP =  10.247.21.199
+Node1 IP =  10.247.21.228
+Add the configuration “|text/csv” to ms360 yaml override files into the property “contentTypesWhiteList“.
+Chart Backup Build:-failedhttp://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/39/
+ Image Backup Build : -failed http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/288/","
+NA",NA,TRUE,9/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,BriteBill,BriteBill,ITR16.5 Baseline,"
+
+","
+
+","
+Please perform template patching after classic deployment,
+
+ 
+
+","
+16.5 BB MS Release
+ commit - a532a3e6885
+
+BB classic version -2.260.3",NA,TRUE,9/22/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.07,D1,OC,ITR16.4 Baseline,"
+OCHF#73
+","
+NA","
+NA","
+81389d21840
+",NA,TRUE,9/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.07,D1,OC,ITR16.4 Baseline,"
+CareHF#34
+","
+NA","
+NA","
+9b30b46ba4d
+",NA,TRUE,9/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.07,R1,RTB,ITR16.4 Baseline,"
+RTB HF#46","
+NA","
+NA","
+73a37030c6a
+",NA,TRUE,9/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.43,R1,RTB,CDEX-252843 ; CDEX-253830,"
+?HF # 128
+","
+?NA
+","
+?NA
+","
+?7058fd67900
+",NA,TRUE,9/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.43,D1,OH,CDEX-255318 CDEX-255620,"
+?HF #50
+","
+?NA
+","
+?NA
+","
+?0b33479f80d
+
+
+
+
+59d74191406
+53878641493
+
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.44,D1,OC,CDEX-251300,"
+NA","
+NA","
+Follow steps in attached doc.","
+NA",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.08,D1,OC,CDEX-251300,"
+NA","
+NA","
+Follow steps in attached doc.","
+NA",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,C1;#D1;#iPaaS;#R1;#BriteBill;#NEO;#MMap,OC;#C1;#RTB;#OH;#SkyFM;#Sky-Smart;#Sky-View;#Sky-Force;#OSO;#OUA;#MMAP;#BriteBill,NA,"
+NA","
+NA","
+New/Updated External
+
+Interfaces
+Please refer to the
+following table containing the list of features and new/changed API/Kafka External
+integration: PI16 External Interfaces.xlsx","
+NA",NA,FALSE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.08,C1,C1,NA,"
+C1HF#16
+","
+NA","
+Requires AU + RT PLs","
+624372ea19c
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.08,D1,OC,NA,"
+OCHF#74
+","
+NA","
+NA","
+1093b344389
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.08,D1,OC,NA,"
+CareHF#35
+","
+NA","
+NA","
+8a8e940e3b8
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.08,D1,OC,NA,"
+Common Services HF#2
+","
+NA","
+NA","
+c5528afc680
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.08,R1,RTB,NA,"
+RTBHF#47
+","
+NA","
+NA","
+598a372b485
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.44,C1,C1,CDEX-255994,"
+C1HF#24
+","
+NA","
+Requires AU + RT PLs","
+87de6353e5f
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.45,R1,RTB,CDEX-255040 CDEX-254549,"
+RTB HF#129","
+NA","
+NA","
+41dc5e52a2e
+",NA,TRUE,9/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.09,BriteBill,BriteBill,CDEX-254101 CDEX-251841,"
+
+Platform hybrid release package
+2.240.7","
+NA","
+NA","
+090126ead46
+",NA,TRUE,9/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.45_Cancelled,NEO,OUA,CDEX-256433 BSSE-79714,"
+attbsse-aua-10.4.163-prd15.5
+ms360-security-10.7.79-36
+nap-common-10.6.349-49
+persistence-10.7.242-8
+platform-10.7.193-69platform-config-10.7.87-10","
+
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/163/
+
+Orchestration Zip: http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230911.200835-17-src.zip","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205","
+NA",NA,FALSE,9/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.09,NEO,OSO,CDEX–226192  CDEX-254318,"
+
+oni-federation-1.0.699-52
+ onsi-2.0.1461-66
+ ops-ui-1.0.837-15
+ run-time-catalog-1.0.289-23
+ persistence-10.7.242
+ platform-10.7.193-53
+ platform-config-10.7.87ms360-security-10.7.79-25
+ nap-common-10.6.349-3","
+Storage Build: http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/254/
+
+Orchestration Zip:http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support0-SNAPSHOT/att-orchestration-10.4-Support0-20230912.125016-10-src.zip","
+TLC Version:  10.4.380-Support0
+Reference Images:
+ATT MSs Image:  10.4-Support0-SNAPSHOT-120
+Customization Image:   10.4-Support0-SNAPSHOT-272
+ONI Image: 10.4-Support0-SNAPSHOT-20
+Reference Env:
+Master IP =  10.247.21.199
+Node1 IP =  10.247.21.228
+Chart Backup Build: -failedhttp://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/40/Image Backup Build: -failedhttp://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/288/","
+NA",NA,TRUE,9/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.45,D1,OH,CDEX-256160,"
+NA","
+NA","
+NA","
+e8029abbfde
+",NA,TRUE,9/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.09,D1,OH,CDEX-256160,"
+NA","
+NA","
+NA","
+7618c62192f
+",NA,TRUE,9/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.46,MMap,MMAP,CDEX-254491,"
+NA","
+15.5.31
+","
+EOM unbilled extracts were having billed charges. Through this defect we are fixing it by adding two new filters in existing logic.
+","
+NA",NA,TRUE,9/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.10,MMap,MMAP,CDEX-254491,"
+NA","
+16.3.9
+","
+EOM unbilled extracts were having billed charges. Through this defect we are fixing it by adding two new filters in existing logic.
+","
+NA",NA,TRUE,9/12/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.46,NEO,OUA,CDEX-256433,"
+attbsse-aua-10.4.165-prd15.5
+ms360-security-10.7.79-36
+nap-common-10.6.349-49
+persistence-10.7.242-8
+platform-10.7.193-69platform-config-10.7.87-10","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/165/
+Orchestration Zip:http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230913.113253-18-src.zip","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205","
+NA",NA,TRUE,9/13/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.46,R1,RTB,CDEX-255624,"
+RTB HF#131","
+NA","
+NA","
+edf81bb7cf9
+",NA,TRUE,9/13/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.11,C1,C1,NA,"
+C1HF#18
+","
+NA","
+NA","
+c42b00b4350
+",,TRUE,9/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.11,D1,OC,NA,"
+
+OC HF#76 ","
+NA","
+NA","
+3c414d90715
+",,TRUE,9/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.11,D1,OH,NA,"
+
+OH HF#26","
+NA","
+NA","
+10bba20e188
+",,TRUE,9/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.11,D1,OC,NA,"
+
+Common Services HF#3","
+NA","
+NA","
+cc81fbfa829
+",,TRUE,9/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.11,R1,RTB,NA,"
+
+RTB HF#50 ","
+NA","
+NA","
+676166b7894
+",,TRUE,9/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.11,C1;#R1;#D1,OC;#C1;#OH;#RTB,NA,"
+
+MPP HF#131","
+NA","
+
+Note: All 3 PLs should be executed in Install Mode ONLY.","
+72cf092b275
+",,TRUE,9/14/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.47 - CANCELLED,MMap,MMAP,CDEX-209418,"
+NA","
+NA","
+To fix this defect, DevOps needs to update in helm values.yml file under mgt and audit section in bitbucket
+WEBUIURL =https://amdocs-mm-prod1-webui.prod1.attbsse.amdocs.com:8443/mmweb/Deploy pipeline to reflect changes in bitbucket with same level of code.
+","
+NA",NA,FALSE,9/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.11,MMap,MMAP,CDEX-255150,"
+NA","
+16.3.9
+","
+To fix the issue corrected the date conversion function in DS_BILL_CYCLE data source.
+","
+NA",NA,TRUE,9/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.47,R1,RTB,CDEX-257255 CDEX-255633  CDEX-252523,"
+HF#132","
+NA","
+NA","
+c0272d896ba
+",NA,TRUE,9/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.12,R1,RTB,CDEX-257092,"
+NA","
+
+ustomerbill-billdataextracthook:16.5.9","
+NA","
+66a86b5cf27
+",NA,TRUE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,NEO,OSO,ITR16.5 Baseline,"
+oni-federation- 1.0.801-59
+ops-ui- 1.0.1209-16
+onsi- 2.0.1570-47
+run-time-catalog- 1.0.353-23
+persistence- 10.7.279-12
+platform-10.7.225-50
+platform-config- 10.7.96-6ms360-security- 10.7.88-34
+ nap-common-10.6.368-21","
+Storage Build: (In Progress)http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/258/
+
+Orchestration Zip: http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support3-SNAPSHOT/att-orchestration-10.4-Support3-20230912.201130-3-src.zip","
+TLC Version:  10.4.411-Support3
+Reference Images:
+ATT MSs Image: 10.4-Support3-SNAPSHOT-202
+Customization Image:  10.4-Support3-SNAPSHOT-247
+ONI Image10.4-Support3-SNAPSHOT-77
+Reference Env:
+Master IP = 10.247.21.201
+Node1 IP = 10.247.21.159
+Chart Backup Build: (Failed)
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/41/
+Image Backup Build (Failed)
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/290/
+Note :- This charts are core certified for 23.03 KS8 1.25","
+NA",NA,TRUE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.12,D1,OC,CDEX-257486 CDEX-257760,"
+OCHF#79
+","
+NA","
+NA","
+d8071a119ea
+",NA,TRUE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.12,D1,OH,CDEX-257760,"
+OHHF#28
+","
+NA","
+NA","
+0ae29642833
+",NA,TRUE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.12,D1,OC,NA,"
+MPPHF#132
+","
+NA","
+NA","
+037b4fd9aa5
+",NA,TRUE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.12,R1,RTB,CDEX-252834 CDEX-257760,"
+RTBHF#53
+","
+NA","
+NA","
+a0d86fe370d
+",NA,TRUE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.13,D1,OC,CDEX-257293,"
+NA","
+NA","
+NA","
+be55949aa83
+",NA,TRUE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.48,D1,OC,CDEX-257485,"
+NA","
+productorder-wrapper: 15.5.13
+","
+NA","
+cb9be21c784
+",NA,TRUE,9/19/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.48,C1,C1,CDEX-257760,"
+C1HF#26
+","
+NA","
+NA","
+c283c2459f7
+",NA,TRUE,9/19/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.48,D1,OC,CDEX-257760,"
+OCHF#103
+","
+NA","
+NA","
+f5f6f6dfcf0
+",NA,TRUE,9/19/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.48,D1,OH,CDEX-257760,"
+OHHF#51
+","
+NA","
+NA","
+88f3f9175a9
+",NA,TRUE,9/19/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.48,D1;#C1;#R1,OC;#OH;#RTB;#C1,CDEX-257760,"
+MPPHF#131
+","
+NA","
+Note: All3 PLs should be executed inInstall Mode ONLY.
+","
+f68982c5143
+",NA,TRUE,9/19/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.13,MMap,MMAP,CDEX-257070,"
+NA","
+16.3.11
+","
+Deployed V1 version code of DS_RTB_CUSTOMER_BILL data source.
+","
+NA",NA,TRUE,9/19/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.49,D1,OC,CDEX-255318,"
+OH HF#52
+","
+NA","
+NA","
+7564d67c806
+",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.49,NEO,OSO,CDEX-255163 CDEX-247967 1188160-082123 1188064-081823,"
+oni-federation- 1.0.699-52
+ops-ui- 1.0.837-15
+onsi- 2.0.1461-66
+run-time-catalog- 1.0.289-25
+persistence- 10.7.242-8
+platform-10.7.193-69
+platform-config- 10.7.87-10ms360-security- 10.7.79-36
+ nap-common- 10.6.349-49","
+Orchestration Zip: 
+http://os-nexus2:8081/repository/att.maven.snapshot//com/amdocs/oss/att/customization/att-orchestration/10.4-Support1-SNAPSHOT/att-orchestration-10.4-Support1-20230918.221208-24-src.zip 
+Update the following property in ms360 override file :-
+contentTypesWhiteList: application/json|application/merge-patch+json|application/json-patch+json|application/x-www-form-urlencoded|text/plain|multipart/form-data|text/html|text/html;charset=utf-8|application/octetstream|application/json;charset=utf-8|application/json-patch+json;charset=utf-8|text/xml|application/soap+xml;charset=UTF-8|text/xml;charset=UTF-8|image/gif|image/jpeg|image/tiff|image/png|image/bmp|image/x-msbmp|application/vnd.ms-word|application/msword|application/vnd.ms-word|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/pdf|application/x-pdf|application/vnd.msexcel|application/msexcel|application/x-tika-ooxml|application/vnd.ms-spreadsheetml|application/vnd.msexcel|application/msexcel|application/x-tika-ooxml|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/vnd.ms-spreadsheetml|application/vnd.ms-excel|application/msexcel|application/x-tikaooxml|application/vnd.ms-excel.sheet.macroEnabled.12|application/x-msmetafile|application/x-emf|application/vnd.visio|application/x-tika-msoffice|application/vnd.visio|application/x-tika-msoffice|application/xml|application/vnd.visio|application/vnd.visio2013|application/x-tika-ooxml|application/vnd.ms-excel.sheet.macroEnabled.12|application/vnd.ms-visio.drawing|image/vnd.dwg|image/vnd.dxf|text/plain|application/vnd.ms-powerpoint|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/zip|application/octetstream|application/vnd.ms-outlook|application/gzip|application/x-gzip|application/x-gunzip|application/gzipped|application/gzip-compressed|application/x-compressed|application/x-compress|gzip/document|application/octet-stream|application/x-rar-compressed|application/octet-stream|application/vnd.ms-outlook|text/plain|message/rfc822|text/html|image/jp2|image/jpeg2000|image/jpeg2000-image|image/x-jpeg2000-image|application/rtf|application/x-rtf|text/rtf|text/richtext|application/msword|application/doc|application/javascript|application/x-soffice|text/event-stream;charset=utf-8|application/json-patch-query+json|application/x-ndjson|text/csv
+","
+TLC Version:  10.4.371-Support1
+
+Reference Images:
+ATT MSs Image: 10.4-Support1-SNAPSHOT-133
+Customization Image:  10.4-Support1-SNAPSHOT-238
+ONI Image10.4-Support1-SNAPSHOT-24
+Reference Env:
+Master IP = 10.247.25.72
+Node1 IP = 10.247.25.97
+Chart Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/42/
+Image Backup Build (Failed)
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/291/
+Storage Build: (In Progress)
+http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/264/
+Note :- This charts are core certified for 22.12 KS8 1.25","
+NA",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.49,BriteBill,BriteBill,CDEX-254548 CDEX-253057 CDEX-254038 CDEX-256282,"
+
+Platform hybrid release package
+2.224.19","
+NA","
+Please perform steps in attached ""Template patching"" doc, after classic deployment.
+","dc6c9604247
+
+",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.14,D1,OC,NA,"
+OCHF#80
+","
+NA","
+NA","
+cac34f35978
+",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.14,D1,OH,CDEX-256564,"
+OHHF#29
+","
+NA","
+NA","
+46da9ea45e2
+",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.14,D1,OC,NA,"
+MPPHF#133
+","
+NA","
+NA","
+9b29abd7a5d
+",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.14,R1,RTB,NA,"
+RTBHF#54
+","
+NA","
+NA","
+eb29e4afad6
+",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.50,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-251434 ; CDEX-198503,"
+NA","
+NA","
+Baseline ED: 22.09.01.133: fo core drop: 22.12 ITR - 15.5
+
+
+Instructions:  Please check in your CRD branch that DD versions are equal to below/Higher CRD versions is okay.
+
+ com.amdocs.platform:ms-lifecycle-operator-dd:1.23.27:yaml
+com.amdocs.platform:couchbase-service-broker-dd:1.6.18:yaml
+com.amdocs.platform:postgres-service-broker-dd:1.1.18:yaml
+com.amdocs.platform:elasticsearch-service-broker-dd:1.8.12:yaml
+com.amdocs.platform:kafka-service-broker-dd:1.5.26:yaml
+com.amdocs.foundation.fnddomains:fndsec-idm-dd:2.12.21:tar.gz
+com.amdocs.foundation.fnddomains:fndsec-sso-dd:4.19.14:tar.gzcom.amdocs.platform:service-catalog-dd:1.2.24:yaml
+
+","
+01be3b46a20
+",NA,FALSE,9/20/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.50,D1,OH,CDEX-257041,"
+OHHF#52
+","
+NA","
+NA","
+365df6c40f4
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,D1,OC,CDEX-255899 CDEX-254772,"
+NA","
+NA","
+Reindex the ES per following instructions:Flush docs of pod_temp, pod_temp2, pod_transfer, pod_transfer2 CB      buckets from D1 CB
+
+      CREATE PRIMARY INDEX on `oc_c1_data_persist`.`pod`.`pod_temp`;
+      delete from `oc_c1_data_persist`.`pod`.`pod_temp` where 1=1;Drop discovery1 and discovery2 ES indices 
+
+      curl -k -u elastic:changeMe -XDELETE https://elastic-enterprise-user-es-http-pet2-backingservices.petgrp1.attbsse.amdocs.com/discovery1
+      curl -k -u elastic:changeMe -XDELETE https://elastic-enterprise-user-es-http-pet2-backingservices.petgrp1.attbsse.amdocs.com/discovery2Uninstall pod-importmanager and its cbes      connectors from the envTrigger Runtime PL to reinstallRun C1 tool with cleanup Load C1 data again ","
+NA",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.50,R1,RTB,CDEX-252824,"
+RTB HF#136
+","
+NA","
+NA","
+55ca9c573ae
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,D1,OC,CDEX-257293,"
+NA","
+NA","
+NA","
+4fd4ef4bd4c
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,D1,OC,CDEX-258640,"
+NA","
+NA","
+NA","
+0d92d4c7689
+
+46c338a1696
+",NA,FALSE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,R1,RTB,CDEX-258357,"
+NA","
+
+customerbill-billdataextracthook:16.6.8","
+NA","
+9828862e55c
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.50,MMap,MMAP,CDEX-257128,"
+NA","
+NA","
+This change needs to be done on DR environment as well.
+ This is security defect. Vulnerability scan is happening for three TLS versions. We are going to keep only one TLS version which is TLSv1.2. Once the latest TLS version is configured, scan will not catch vulnerability for TLS version. Please find attached document for deployment steps.
+","
+NA",NA,FALSE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,MMap,MMAP,CDEX-257128,"
+NA","
+NA","
+This is security defect. Vulnerability scan is happening for three TLS versions. We are going to keep only one TLS version which is TLSv1.2. Once the latest TLS version is configured, scan will not catch vulnerability for TLS version. Please find attached document for deployment steps.
+","
+NA",NA,FALSE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-251434 CDEX-198503,"
+
+Baseline ED: 22.12.01.76","
+NA","
+Run all 3 Deployment Pipelines
+
+
+Instructions:
+ please make sure in CRD Bitbucket branch CRS’s version should be equal below version/Higher version should also fine.
+ com.amdocs.platform:ms-lifecycle-operator-dd:1.23.34:yaml
+com.amdocs.platform:couchbase-service-broker-dd:1.6.18:yaml
+com.amdocs.platform:postgres-service-broker-dd:1.1.18:yaml
+com.amdocs.platform:elasticsearch-service-broker-dd:1.8.12:yaml
+com.amdocs.platform:kafka-service-broker-dd:1.5.26:yaml
+com.amdocs.foundation.fnddomains:fndsec-idm-dd:2.14.11:tar.gz
+com.amdocs.foundation.fnddomains:fndsec-sso-dd:4.19.14:tar.gz
+com.amdocs.platform:service-catalog-dd:1.2.24:yaml
+ 
+","
+15058d10006
+
+
+ (this commit is from ITR -16.6 release cd branch but in order to adopt Baseline ed 22.12.01.76, we need to create file with contents mentioned in this commit) 
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-251434 CDEX-198503,"
+
+Baseline ED: 22.12.01.76","
+NA","
+Run all 3 Deployment Pipelines
+
+
+Instructions:
+ please make sure in CRD Bitbucket branch CRS’s version should be equal below version/Higher version should also fine.
+ com.amdocs.platform:ms-lifecycle-operator-dd:1.23.34:yaml
+com.amdocs.platform:couchbase-service-broker-dd:1.6.18:yaml
+com.amdocs.platform:postgres-service-broker-dd:1.1.18:yaml
+com.amdocs.platform:elasticsearch-service-broker-dd:1.8.12:yaml
+com.amdocs.platform:kafka-service-broker-dd:1.5.26:yaml
+com.amdocs.foundation.fnddomains:fndsec-idm-dd:2.14.11:tar.gz
+com.amdocs.foundation.fnddomains:fndsec-sso-dd:4.19.14:tar.gzcom.amdocs.platform:service-catalog-dd:1.2.24:yaml
+","
+6de2a82079d
+7aae72143c8
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,D1,OC,CDEX-257293,"
+NA","
+NA","
+NA","
+4fd4ef4bd4c
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,D1,OC,CDEX-258640,"
+NA","
+NA","
+NA","
+42198253b3b
+18c7e62d59c
+
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,R1,RTB,CDEX-258357,"
+NA","
+
+customerbill-billdataextracthook:16.6.8","
+NA","
+9828862e55c
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,D1,OC,NA,"
+OCHF#82
+","
+NA","
+NA","
+c3fda2c2f68
+",,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,D1,OC,NA,"
+OCHF#82
+","
+NA","
+NA","
+6bffbc719f0
+",,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.15,R1,RTB,CDEX-257425,"
+RTBHF#56
+","
+NA","
+NA","
+41249edcd19
+",,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,R1,RTB,CDEX-257425,"
+RTBHF#56
+","
+NA","
+NA","
+761f1f1f435
+",,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.50,BriteBill,BriteBill,CDEX-258556,"
+NA","
+NA","
+Please follow steps in attached ""BSSe-BB RN15.5 patch_CDEX-258556"" Doc","
+NA",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.00,MMap,MMAP,CDEX-257128,"
+NA","
+NA","
+This is security defect. Vulnerability scan is
+happening for three TLS versions. We are going to keep only one TLS version
+which is TLSv1.2. Once the latest TLS version is configured, scan will not
+catch vulnerability for TLS version. Please find attached document for
+deployment steps.
+","
+NA",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.51,R1,RTB,CDEX-258573,"
+RTB HF#137
+","
+NA","
+NA","
+3d5fcd21fbc
+",NA,FALSE,9/21/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.52,MMap,MMAP,CDEX-221076 CDEX-232618 CDEX-251447,"
+NA",15.5.32,"
+As per ATT requirement, changes have been made in rules BQ001_1, BQ001_2, BQ001_3, to fine tune the results and avoid false positives.
+","
+NA",NA,FALSE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,NEO,OUA,ITR16.6 Baseline CDEX-257775 CDEX-254648  AKS v1.25 Certified,"
+attbsse-aua-10.4.2688-develop          
+ms360-security-10.7.88-34
+nap-common-10.6.368 -21
+persistence-10.7.279-12
+platform-10.7.225-50platform-config-10.7.96-6","
+Build: http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/develop/2688/
+
+Orchestration Zip: http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-develop-SNAPSHOT/orchestration-10.4.0.0.0-develop-20230926.155858-49-src.zip
+
+","
+Reference Env:
+Master IP =10.247.187.210
+Node1 IP =10.247.187.219
+OUA Simulators: att_simulators_16.6.tar
+",,,FALSE,9/22/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.52,D1,OH,CDEX-258677  CDEX-255318,"
+HF#53","
+NA","
+NA","
+1a75b9000ea
+",,FALSE,9/18/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.53,NEO,OUA,CDEX-257775,"
+attbsse-aua-10.4.168-prd15.5
+ms360-security-10.7.79-36
+nap-common-10.6.349-49
+persistence-10.7.242-8
+platform-10.7.193-69platform-config-10.7.87-10","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/168/
+Orchestration Zip: http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230922.095941-20-src.zip
+","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205","
+NA",NA,FALSE,9/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.01,NEO,OSO,Adoption  dop chart 10.4.1016-hf88bn79,"
+oni-federation-1.0.801-59
+ops-ui-1.0.1209-16
+onsi-2.0.1570-47
+run-time-catalog-1.0.353-23
+persistence-10.7.279-12
+platform-10.7.225-50
+platform-config-10.7.96-6ms360-security-10.7.88-34
+ nap-common-10.6.368-21","
+Storage Build:
+http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/270/
+Orchestration Zip: 
+http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support3-SNAPSHOT/att-orchestration-10.4-Support3-20230922.140253-5-src.zip","
+TLC Version:  10.4.420-Support3
+
+Reference Images:ATT MSs Image: 10.4-Support3-SNAPSHOT-204Customization Image:  10.4-Support3-SNAPSHOT-250
+ONI Image10.4-Support3-SNAPSHOT-77
+Reference Env:
+Master IP = 10.247.21.201
+Node1 IP = 10.247.21.159
+Chart Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/47/
+Image Backup Build
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/295/","
+NA",NA,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,NEO,OSO,Adoption  dop chart 10.4.1016-hf88bn79,"
+oni-federation-1.0.801-59
+ops-ui-1.0.1209-16
+onsi-2.0.1570-47
+run-time-catalog-1.0.353-23
+persistence-10.7.279-12
+platform-10.7.225-50
+platform-config-10.7.96-6ms360-security-10.7.88-34
+
+nap-common-10.6.368-21","
+Storage Build:
+http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/270/
+Orchestration
+Zip: 
+http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support3-SNAPSHOT/att-orchestration-10.4-Support3-20230922.140253-5-src.zip","
+TLC Version:  10.4.420-Support3
+
+Reference Images:ATT MSs Image: 10.4-Support3-SNAPSHOT-204Customization Image:  10.4-Support3-SNAPSHOT-250
+ONI Image10.4-Support3-SNAPSHOT-77
+Reference Env:
+Master IP = 10.247.21.201
+Node1 IP = 10.247.21.159
+Chart
+Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/47/
+Image Backup
+Build
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupDockersWithoutDeploy/295/","
+NA",NA,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.01,R1,RTB,CDEX-259296,"
+NA","
+tax-calculatetaxextension : 16.6.5
+","
+NA","
+6512a5c274f 
+",NA,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.01,D1,OC,CDEX-259150,"
+NA","
+NA","
+NA","
+8454f7f23d8
+",NA,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.53,D1,OC,CDEX-256516 CDEX-256793,"
+OCHF#104
+","
+NA","
+NA","
+ba3601d2854
+",NA,TRUE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.01,D1,OH,NA,"
+OHHF#30
+","
+NA","
+NA","
+75cd82bd38e
+",NA,TRUE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.01,R1,RTB,CDEX-257425,"
+RTBHF#57
+","
+NA","
+NA","
+81ddc22f02e
+",NA,TRUE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.01,D1,OC,CDEX-258356,"
+OCHF#85
+","
+NA","
+NA","
+100ba90b961
+",NA,TRUE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.54,iPaaS,Sky-View,CDEX-242001 BSSE-79963 BSSE-79663,"
+NA","
+NA","
+CDEX-242001
+BSSE-79963
+BSSE-79663 
+Other Enhancements
+- add 500 characters limit for ErrMsg
+- improve mapping for RTB ErrCode
+- Added Total rows count to the dynamic tables.- Changed color for task severity ‘Past Due’ to Purple.","
+55c842acf3a
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.02,D1,OC,CDEX-260133,"
+NA","
+NA","
+NA","
+28bea376831
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.54,BriteBill,BriteBill,BSSE-40719 BSSE-40718,"
+NA","
+NA","
+ArcSight adoption steps (Audit-ms)","
+6f5f5145f1a
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.02,iPaaS,Sky-View,CDEX-242001 BSSE-79963 BSSE-79663,"
+NA","
+NA","
+Other Enhancements
+- add 500 characters limit for ErrMsg
+- improve mapping for RTB ErrCode
+- Added Total rows count to the dynamic tables.- Changed color for task severity ‘Past Due’ to Purple.","
+082bccbc53c
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.02,D1,OC,NA,"
+OCHF#87
+","
+NA","
+NA","
+f8c28be4cb6
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.02,D1,OC,NA,"
+MASS HF#11","
+NA","
+NA","
+fd54af28023
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.02,D1,OC,NA,"
+Care HF#37
+","
+NA","
+NA","
+80e2740ecdf
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.02,D1;#C1;#R1,OC;#C1;#OH;#RTB,NA,"
+MPP HF#134","
+NA","
+NA","
+509b4aba639
+",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.54,NEO,OUA,CDEX-254648,"
+attbsse-aua-10.4.169-prd15.5
+ms360-security-10.7.79-36
+nap-common-10.6.349-49
+persistence-10.7.242-8
+platform-10.7.193-69platform-config-10.7.87-10","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/prd15.5/169Orchestration Zip: http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-prd15.5-SNAPSHOT/orchestration-10.4.0.0.0-prd15.5-20230926.153840-21-src.zip","
+Reference Env:
+ Master IP=10.247.147.167
+ Node1 IP =10.247.147.205","
+NA",NA,TRUE,9/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.55,R1,RTB,CDEX-258253,"
+
+RTB HF#141","
+NA","
+NA","
+7e048fd96ea
+",NA,TRUE,9/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.55,D1,OH,CDEX-259762,"
+OH ED: 22.12.01.165","
+NA","
+NA","
+c7583022b14
+",NA,TRUE,9/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.03,D1,OH,CDEX-258235 CDEX-259762,"
+OH ED:23.03.01.127","
+NA","
+NA","
+f20e3a9c3f8
+",NA,TRUE,9/28/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1,OH,CDEX-258235 CDEX-259762,"
+OH ED:23.03.01.127","
+NA","
+NA","
+f20e3a9c3f8
+",NA,FALSE,9/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1,OC,NA,"
+OCHF#87
+","
+NA","
+NA","
+f8c28be4cb6
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1,OC,NA,"
+MASS HF#11","
+NA","
+NA","
+fd54af28023
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1,OC,NA,"
+Care HF#37
+","
+NA","
+NA","
+80e2740ecdf
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1;#C1;#R1,OC;#C1;#OH;#RTB,NA,"
+MPP HF#134","
+NA","
+NA","
+509b4aba639
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,R1,RTB,CDEX-257425,"
+RTBHF#57
+","
+NA","
+NA","
+81ddc22f02e
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1,OC,CDEX-260133,"
+NA","
+NA","
+NA","
+28bea376831
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,R1,RTB,CDEX-259296,"
+NA","
+tax-calculatetaxextension : 16.6.5
+","
+NA","
+6512a5c274f 
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1,OC,CDEX-259150,"
+NA","
+NA","
+NA","
+8454f7f23d8
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.56,MMap,MMAP,CDEX-259621,"
+NA",15.5.34,The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.,"
+NA",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,MMap,MMAP,CDEX-259621,"
+NA",16.3.12,The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.,"
+NA",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.04,MMap,MMAP,CDEX-259621,"
+NA",16.5.10,The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.,"
+NA",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.04,MMap,MMAP,CDEX-258629,"
+NA",16.5.10,Code was fixed to populate the Immediate charges data in DMAGG table.,"
+NA",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.04,D1,OC,Increase read timeout in couchbase ingress,"
+NA","
+NA","
+NA","
+1e2f291fabb
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,D1,OC,Increase read timeout in couchbase ingress,"
+NA","
+NA","
+NA","
+1e2f291fabb
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.56,D1,OC,CDEX-261260,"
+NA","
+NA","
+increase read out time for couchbase
+","
+4fc44dbce03
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.3.16,R1,RTB,CDEX-257057,"
+NA","
+NA","
+NA","
+579db9ac20f
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.04,R1,RTB,CDEX-257057,"
+NA","
+NA","
+NA","
+579db9ac20f
+",NA,FALSE,10/1/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.57,iPaaS,SkyFM,CDEX-261052,"
+NA","
+
+Sky-force :ogeg
+
+BUILD_ITR15.5_ogeg8044
+
+","
+NA","
+5265f8f63ea
+",,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.05,D1,OC,NA,"
+NA","
+NA","
+NA","
+f7dfbe70eb6
+",,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.57,D1,OH,CDEX-260703,"
+HF#56","
+NA","
+NA","
+15a13d6a275
+",NA,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.05,D1,OC,CDEX-258329,"
+HF#88","
+NA","
+NA","
+ba12b452f42
+",NA,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.05,D1,OH,CDEX-260703,"
+HF#32","
+NA","
+NA","
+ba12b452f42
+",NA,FALSE,9/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.05,R1,RTB,NA,"
+HF#59","
+NA","
+NA","
+ba12b452f42
+",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.05,D1,OC,NA,"
+Mass Mgmt HF#11","
+NA","
+NA","
+d7cab7c1f01
+",,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.58,C1;#D1;#R1,OC;#C1;#OH;#RTB,Feature - 1032439 ,"
+NA","
+NA","
+Production Prerequisite for GOT deployment
+Follow all steps as mentioned in the attached document.
+
+","
+b30ad730bef
+b431ded256e
+",NA,FALSE,10/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.58,BriteBill,BriteBill,CDEX-251057,"
+NA","
+NA",,"
+d3ec2ea0283
+",NA,FALSE,10/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.07,MMap,MMAP,CDEX-261271,"
+NA","
+16.6.13
+","
+The queries were consuming high CPU and running for longer period.Indexes created to tune the long running query.
+","
+NA",NA,FALSE,10/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.06,D1,OC,CDEX-260518,"
+NA","
+inlap-bridge : 16.6.5
+",,"
+7048e463905
+",,FALSE,10/4/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.06,D1,OH,CDEX-258235,"
+HF#33","
+NA","
+NA","
+87f1d489010
+",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.06,R1,RTB,NA,"
+HF#60","
+NA","
+NA","
+ff0a0fc38be
+",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.06,D1,OC,NA,"
+Care HF#38","
+NA","
+NA","
+407c226878a
+",,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.59,MMap,MMAP,CDEX-259138,"
+NA","
+15.5.35
+","
+Modified the rule BQ26_1 in MMAP and corrected the compare condition.
+","
+NA",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.59,MMap,MMAP,CDEX-259621 - CANCELLED,"
+NA","
+15.5.35
+","
+The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.
+","
+NA",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.06,MMap,MMAP,CDEX-259138,"
+NA",16.5.11,"
+Modified the rule BQ26_1 in MMAP and corrected the compare condition.
+","
+NA",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.06,MMap,MMAP,CDEX-259621,"
+NA","
+16.5.11
+","
+The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.
+","
+NA",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.06,D1,OC,CDEX-261258,"
+NA","
+NA","
+Special Instruction. As a part of this RN we introduced a single token for the CG url across all env
+ 
+It is always advised to testing team to change the token value whenever they want to connect for different CG
+Token NameàD1_TOKEN_CUSTOMER_GRAPH_URL
+ 
+One more boolean token is there if they want to toggle between CG or simulator
+Token nameàcustomer-customercust-mock
+ 
+By default this token will checked in as true as in dev env we don’t call real cg
+But for QE and other env token value should be false if you wan’t to connect to realCG
+ 
+ 
+","
+ddcb189e3e8221497b3c4e
+",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.59,D1,OC,CDEX-256793 ; CDEX-256516,"
+NA","
+NA","
+ 
+appConfigmap:
+com:
+amdocs:
+msb:
+propagation:
+parameters: serviceAddressId,migratedFrom,customerType,customerSubType,stateOrProvince,city,postCode,CalculateTaxInd,ZIP,BillingAddressId,zipCode
+manageManualPromotion:
+returnTerminatedItems: false
+couchbase:
+buckets:
+productconfigurator_cache:
+numReplicas: 0
+ removed unused yaml profileValues/customValues/default/products/oc/productvalidator-subdomain/productconfigurator-promotion/productconfigurator-promotion-values.yaml
+
+
+
+Note: This is the overridden config on top of OC patch#104 for drop 22.12 which is delivered inRN#15.5.53.
+
+","
+
+e84eb9eeb27c09ffba970a
+",NA,FALSE,10/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.07,D1,OC,CDEX-256793 and CDEX-256516,"
+NA","
+NA","
+ 
+appConfigmap:
+com:
+amdocs:
+msb:
+propagation:
+parameters: serviceAddressId,migratedFrom,customerType,customerSubType,stateOrProvince,city,postCode,CalculateTaxInd,ZIP,BillingAddressId,zipCode
+manageManualPromotion:
+returnTerminatedItems: false
+couchbase:
+buckets:
+productconfigurator_cache:
+numReplicas: 0
+ removed unused yaml profileValues/customValues/default/products/oc/productvalidator-subdomain/productconfigurator-promotion/productconfigurator-promotion-values.yaml
+
+
+
+Note: This is the overridden config on top of OC patch#104 for drop 22.12 which is delivered inRN#15.5.53.
+
+","
+
+c050cc12b2e28bcdc283e9
+",NA,FALSE,10/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,MMap,MMAP,CDEX-261732,"
+NA","
+16.6.13
+","
+Please deploy below docker images to fix the issue.
+ 
+https://nexus.attmgmt.attbsse.amdocs.com:5001/mm-audit:v9.4.6.3101
+https://nexus.attmgmt.attbsse.amdocs.com:5001/tx3:v9.4.6.3101
+https://nexus.attmgmt.attbsse.amdocs.com:5001/mm-mgt:v9.4.6.3101
+https://nexus.attmgmt.attbsse.amdocs.com:5001/mm-nodered-automation:v9.4.6.3111https://nexus.attmgmt.attbsse.amdocs.com:5001/mm-nodered-bpm:v9.4.6.3113
+
+
+
+
+","
+NA",NA,FALSE,10/5/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.59,D1,OC,CDEX-258605 CDEX-258249 CDEX-261069,"
+HF#106","
+NA","
+NA","
+507c3f7251b 
+",NA,FALSE,10/6/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.5.07,MMap,MMAP,CDEX-257335,"
+NA","
+16.6.15
+","
+Increased the Alternation column length from 50 char to 256 char to fix this issue.
+","
+NA",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,MMap,MMAP,,"
+NA","
+16.6.15
+","
+Increased the Alternation column length from 50 char to 256 char to fix this issue.
+","
+NA",NA,FALSE,10/3/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.60,MMap,MMAP,CDEX-256538,"
+NA","
+15.5.36
+","
+Current Cycle and Audit cycle page is taking 1 minute to return the query output. Index have been created to tune the query.
+","
+15.5.36
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,D1,OC,,"
+NA","
+commoncust-subdomain : 16.6.3
+productconfiguratorcust-subdomain : 16.6.3
+
+","
+,LL API's","
+3f5e2b1ef10
+
+7e5ed8a9878
+ee82bdf3939
+
+
+",,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,iPaaS,SkyFM,CDEX-261052,"
+NA","
+Sky-force :ogegBUILD_ITR16.6_ogeg8045
+","
+NA","
+8cf82a7d448
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,D1,OH,CDEX-260425,"
+NA","
+ async-orchestrator : 16.6.12
+","
+NA","
+072d5dc9e8a
+",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-252217,"
+NA","
+NA","
+ 
+Also run following command before runtime Pipeline:helm uninstall ams-apigw-stack
+
+
+
+
+
+","
+1a7b2c0453b
+2866c22c5cd
+",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,D1,OC,CDEX-261258,"
+NA","
+NA","
+NA","
+9a97918c2a8
+",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.60,R1,RTB,CDEX-258253 CDEX-260660 CDEX-259199 CDEX-261371 CDEX-262070 CDEX-261631 CDEX-259211 CDEX-252129,"
+HF#145","
+NA","
+NA","
+90cb70bf22a
+",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,MMap,MMAP,,"
+NA","
+16.6.16
+","
+Inserted record for CutOff Date parameter in DMTX3GLOBALPARAMETER, also corrected loader for Event Date comparison issue.
+","
+NA",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,MMap,MMAP,CDEX-259138,"
+NA","
+16.5.11
+","
+Modified the rule BQ26_1 in MMAP and corrected the compare condition.
+","
+NA",,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,MMap,MMAP,CDEX-259621,"
+NA","
+16.5.11
+","
+The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.
+","
+NA",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,MMap,MMAP,CDEX-262710,"
+NA","
+16.6.17
+","
+Inserted data for rules in table GUI_REF_INSPECTION.
+","
+NA",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.00,BriteBill,BriteBill,Baseline,"
+NA","
+NA","
+Please perform template patching after classic deployment,
+
+ 
+
+
+2. We also have some MySQL DB changes,
+ Please execute this sql script for the same.
+
+
+
+","
+16.6 BB MS Release
+ commit -  5fbe34bce04
+
+BB classic version -2.261.4
+ 
+ED version updated -4344c4aa49e
+ 
+Kafka replication change -4bee0a8a070
+
+CB index connectivity -a90793d548f
+ 
+Adopt new token for CB cluster –c1d6b8e39ab
+",NA,FALSE,10/9/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.61 - CANCELLED,BriteBill,BriteBill,CDEX-258870,"
+NA","
+NA","
+BriteBill - High CPU utilization & High Memory utilization for VCR MS  PI16 - PET defects with same issue - CDEX-258915, CDEX-258910
+","
+c6d1d75a7b4 
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.01,D1,OH,NA,"
+HF#34","
+NA","
+NA","
+6f7a53eb993
+",,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.01,R1,RTB,NA,"
+HF#62","
+NA","
+NA","
+c12cc56dcc5
+",,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.01,D1,OC,NA,"
+Mass Mgmt HF#12","
+NA","
+NA","
+a8676ee7026
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.01,D1,OC,NA,"
+Care HF #39","
+NA","
+NA","
+fa783e0b3e3
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.61,R1,RTB,CDEX-251850,"
+NA","
+NA","
+recycle:
+recycleBatchSize: 500","
+c20a88a0098
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.01,R1,RTB,CDEX-251850,"
+NA","
+NA","
+recycle:
+recycleBatchSize: 500
+","
+fae6a8e4dd8 
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.01,BriteBill,BriteBill,"CDEX-258915,  CDEX-258910 ","
+NA","
+NA","
+BriteBill - High CPU utilization & High Memory utilization for VCR MS 
+","
+c6d1d75a7b4 
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.02,R1,RTB,BSSE-75263,"
+NA","
+NA","
+This US/HF enabled the scenarios tested in US BSSE-70341
+ This US should be delivered as on top later HF for testing & production for after PI16 deployment.
+
+This RN deployment should be done during post business hours and make sure there are no pending/inflight immediate payment request or fallout for immediate payment request.
+ 
+Verify if configs are updated post the deployment of RTB pipeline in app-customerbill-billdataextract configmap and cfm-bridge config map
+BDE:
+ publish V1,V4
+ ImmediateInvoiceFinalize.enabled=true
+CFM bridge:
+ com.amdocs.billing.customerbill.CFMBridge.tmf.async.publish to v1, v4
+ BDE.ImmediateInvoiceBE.enabled=true
+
+
+Please NOTE :
+
+PI16 changes should contain a special note that is for QE as of now.
+ It will be taken to SNP/Prod only after PI16 code base goes to production. 
+Need to notify Onkar/Prasenjit/Fazeel and other relevant env owners when this RNs are released, so that they can follow the special deployment strategy and not deploy everything at once. 
+
+","
+d9f0df1a98c
+",,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.61,BriteBill,BriteBill,CDEX-260793,"
+NA","
+NA","
+NA","
+ed549814914
+
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.61,R1,RTB,CDEX-257604,"
+NA","
+cfm-bridge : 15.5.18
+","
+NA","
+bc639a98778
+",NA,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.62,D1,OH,CDEX-260425,"
+NA","
+async-orchestrator : 15.5.13
+","
+NA","
+175efb4a1fe
+",GOT,FALSE,10/10/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.03,D1,OH,NA,"
+HF#35","
+NA",,"
+e899bb853f3
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.03,D1,OC,NA,"
+Care HF#40","
+NA","
+NA","
+dfc0618a11a
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.03,C1;#D1;#R1,OC;#C1;#OH;#RTB,NA,"
+MPP version # 136","
+NA","
+NA","
+bb28384f837
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.62,MMap,MMAP,CDEX-261739,"
+NA","
+15.5.36
+","
+Current Cycle and Audit cycle page is taking one minute to return the query output. Index have been created to tune the query.
+","
+NA",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,MMap,MMAP,CDEX-261739,"
+NA","
+16.6.18
+","
+Current Cycle and Audit cycle page is taking one minute to return the query output. Index have been created to tune the query.
+","
+NA",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.63,BriteBill,BriteBill,CDEX-258870 ,"
+NA","
+NA","
+ATT BSSe | PI15.5 | PROD | BB Error - Error sending rendering request to Kafka
+","
+c6d1d75a7b4 
+",NA,FALSE,10/11/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,D1,OC,BSSE-78014,"
+NA","
+promotionqualification-hook : 16.6.4
+","
+NA","
+6342eab5e96
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,R1,RTB,CDEX-257604,"
+NA","
+cfm-bridge : 16.6.8
+","
+NA","
+b13b36937a9
+",,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,NEO,OUA,Build 2732 Baseline,"
+Platform Charts (23.03):
+ 
+attbsse-aua-10.4.2732-develop          
+ms360-security-10.7.88-34
+nap-common-10.6.368 -21
+persistence-10.7.279-12
+platform-10.7.225-50platform-config-10.7.96-6
+","
+Build:http://os-delivery-jenkins:8080/job/Delivery/job/ATT_AUA/job/att/job/develop/2732/
+ 
+Orchestration Zip:
+ http://os-nexus2:8081/repository/att.yum.snapshot//com/amdocs/oss/aua/attbsse/orchestration/10.4.0.0.0-develop-SNAPSHOT/orchestration-10.4.0.0.0-develop-20231010.130742-93-src.zip
+","
+TLC Version:
+   ATT MSs Image: 
+   Customization Image:
+   ONI Image:
+   Reference Env:
+   Master IP =10.247.187.210
+   Node1 IP =10.247.187.219
+Backup Build:
+Storage Build:
+OUA   Simulators:att_simulators_17.1.tar",,,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.63,iPaaS,Sky-Smart,BSSE-74888,"
+NA","
+Module :
+   Bsse-Smart :
+
+bsse-bootstrap : 304
+bsse-application : 304bsse-fallout-management : 304
+ bsse-reconciliation : 304
+
+","
+NA","
+0f440e846c0
+
+
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,iPaaS,Sky-Smart,BSSE-74888,"
+NA","
+Module :
+
+bsse-bootstrap : 305
+bsse-application : 305bsse-fallout-management : 305
+ bsse-reconciliation : 305
+","
+NA","
+53fc881b1da
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.63,MMap,MMAP,CDEX-257128,"
+NA","
+NA","
+This change needs to be done on DR environment as well.
+ 
+This is security defect. Vulnerability scan is happening for three TLS versions. We are going to keep only one TLS version which is TLSv1.2. Once the latest TLS version is configured, scan will not catch vulnerability for TLS version.
+ 
+Please find attached document for deployment steps.
+","
+NA",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,MMap,MMAP,CDEX-257128,"
+NA","
+NA","
+This change needs to be done on DR environment as well.
+ 
+This is security defect. Vulnerability scan is happening for three TLS versions. We are going to keep only one TLS version which is TLSv1.2. Once the latest TLS version is configured, scan will not catch vulnerability for TLS version.
+ 
+Please find attached document for deployment steps.
+","
+NA",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,MMap,MMAP,CDEX-262350,"
+NA","
+NA","
+This fix is PET specific, in QE already it is available. As part of fix new token to connect to Azure AD account for PET has been updated.
+","
+da2a65f044e
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,MMap,MMAP,CDEX-263802,"
+NA","
+NA","
+This fix is PET specific, in QE already it is available. As part of fix Kafka Topic no. 9 for RTB has been changed to the correct branch.
+","
+2d0911b36e2
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.04,MMap,MMAP,CDEX-264267,"
+NA","
+NA","
+To avoid the multiple execution of the procedures the HPA of Nodered BPM and Nodered ATM set to 1
+","
+814b986022a
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,BriteBill,BriteBill,"CDEX-260096 , CDEX-244224","
+NA","
+NA","
+NA","
+  16.6 BB MS Release
+ commit –
+73aeae89a4c
+ 
+Platform hybrid release package
+2.261.6
+",NA,FALSE,10/8/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.64,D1,OC,CDEX-255855,"
+HF#108","
+NA","
+NA","
+f6faa464c0e
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,D1,OH,CDEX-262075,"
+NA","
+NA","
+Instructions: 
+ 
+Run below command on env: 
+oc get pvc |grep nfs (For OCP)
+or
+kubectl get pvc |grep nfs (For Azure) 
+ 
+This existing PVC we need to delete from the env (if present). This doesn't have critical data, so can be deleted. 
+Then trigger runtime CD PL in order to recreate PVC.",8b49aace8f3,NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,D1,OC,CDEX-256516 CDEX-256793,"
+HF#94","
+NA","
+NA","
+4dc0f792ea2 
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,D1,OH, CDEX-263863 CDEX-258961,"
+HF#38","
+NA","
+NA","
+137cc18b5f2 along with77a7c4c3c6e/94d46519110
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,R1,RTB,,"
+HF#67","
+NA","
+NA","
+b082ddba259
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,D1,OC,NA,"
+Mass Mgmt HF#14
+","
+NA","
+NA","
+ac8a801b2fb
+",,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,D1,OC,NA,"
+Care HF#42
+","
+NA","
+NA","
+bf95ef17b8e
+",,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,D1,OC,NA,"
+Common Services HF#4
+","
+NA","
+NA","
+593f348cd87
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,C1;#D1;#R1,OC;#C1;#OH;#RTB,NA,"
+MPP version#137
+","
+NA",(please run all 3 Pipelines in INSTALL mode),"
+ 1bcf01a4346
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.05,MMap,MMAP,CDEX-259621,"
+NA","
+16.6.21
+","
+The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.65,MMap,MMAP,CDEX-259621,"
+NA","
+15.5.39
+","
+The mapping of the field ITEM_PRICE_ID was fixed on the Promotion Alteration evaluation of the data source.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.65,iPaaS,SkyFM;#Sky-Smart,CDEX-260613 ,"
+NA","
+bsse-bootstrap:5607
+","
+NA","
+e394937ab2e
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.06,iPaaS,Sky-View;#SkyFM,CDEX-260613,"
+NA","
+bsse-bootstrap:5608
+","
+NA","
+a4ac17a1796
+",,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.06,iPaaS,Sky-Force;#SkyFM,CDEX-263913,"
+NA","
+BUILD_ITR16.6_o2awf8085
+","
+NA","
+6dc3bb6b6bb
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.06,D1,OH,CDEX-262075,"
+NA","
+NA","
+Instructions:
+ 
+Run below command on env:
+ 
+oc get pvc |grep nfs (For OCP)
+or
+kubectl get pvc |grep nfs (For Azure)
+ 
+This existing PVC we need to delete from the env (if present). This doesn't have critical data, so can be deleted. 
+ 
+Again use below command to check if PVC was deleted successfully or not
+ 
+oc get pvc |grep nfs (For OCP)
+or
+kubectl get pvc |grep nfs (For Azure)
+ 
+Please confirm in tokenReplacer.yaml below value:
+ 
+PVC_STORAGE_CLASSNAME: nfs-sc (For OCP)
+or
+PVC_STORAGE_CLASSNAME: fixed-sharedfs-sc (For Azure)
+ 
+Then trigger runtime CD PL in order to recreate PVC.
+","
+8b49aace8f3
+ 
+ e333a11e169
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.06,MMap,MMAP,CDEX-263974,"
+NA","
+16.6.20
+","
+The loader was using different date format, it has been fixed now.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.65,MMap,MMAP,CDEX-262316,"
+NA","
+NA","
+This defect opened against Apache log4j vulnerability in NPRD and PROD environment. As part of PI15 fix, delivery team will fix it through RN. For PI16 and higher environments, fix has been provided in ITR 17.1. Once it is fixed in PI15, it will be carried over to PI16 as well.Please follow attached document to handle the vulnerability
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.06,BriteBill,BriteBill, CDEX-254800 CDEX-253684,"
+NA","
+NA","
+Please follow these steps for the CDEX-253684 fix post deployment.
+
+(ONDEMAND_RENDER_DOCUMENT_REQUEST Autorhization.docx)
+
+
+
+ Instructions for commit id 6 Billops module change and conf change 
+
+ Make sure tmpJsonFolderForIBP directory is present at /data/share location. If not create it and create a softlink to a folder in /data/britebill
+
+ Commands:mkdir /data/share/ tmpJsonFolderForIBPln -s /data/share/tmpJsonFolderForIBP/ /data/britebill/
+","
+Please refer these commits for PI16 config changes
+ 
+1.      CB index connectivity (CDEX-254800), -a90793d548f
+
+
+2.      ED version updated -4344c4aa49e
+
+ 
+3.      Adopt new token for CB cluster –c1d6b8e39ab
+
+ 
+4.      Kafka replication change -4bee0a8a070
+
+ 
+5.      Upgrade helm version -4fe1a41722b
+ 
+6.      Billops module change and conf change -fa5f68a079d
+
+
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07,MMap,MMAP,CDEX-264697,"
+NA","
+NA","
+The queries of the rule are taking huge time hence the index was created.
+","
+81d00c2afdb
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.66,R1,RTB,CDEX-263534,"
+NA","
+NA","
+NA","
+3d405369b03
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07,R1,RTB,CDEX-263534,"
+NA","
+NA","
+NA","
+7ed66b0f81d
+f9748c98553
+09420d4d3d6
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07,R1,RTB,BSSE-85933,"
+NA","
+In Impact appconfig:
+com:
+  amdocs:
+    billing:
+      ms:   processOrderInPrevCycle: false
+","
+NA","
+
+43ae83608aa
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07,R1,RTB,CDEX-262344,"
+NA","
+NA","
+OOM cbkc acbr-Adding recommended config in NFT folder and reverting changes from custom default folder.
+
+","
+e904c529a3f
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07,D1,OC,CDEX-264372,"
+NA","
+NA","
+NA","
+e48476944dc
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07,C1;#D1;#R1,OC;#C1;#OH;#RTB,NA,"
+NA","
+NA","
+amd-apigw-stack MS fix
+","
+da1e9a2af77
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07,D1,OH,NA,"
+NA","
+NA","
+Removing orderworkflow-liteorchestrator MS as we don’t use it
+","
+8ca72b0cfd4
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.66,MMap,MMAP,CDEX-260665,"
+NA","
+15.5.40
+","
+Due to incorrect filter the reject and re run functionality was not supported. Fixed the code to support reject and re run of BA. This has been delivered in ITR 16.3 and already deployed in NPRD environments, so not required to merge in upper environment.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.66 - CANCELLED,MMap,MMAP,CDEX-262656 ,"
+NA","
+NA","
+This change needs to be done on DR environment as well.
+ 
+Fix of this issue has been provided in NR Automation docker image.
+ Please deploy below mentioned NR Automation docker image:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.5.4019
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.07 - CANCELLED,MMap,MMAP,CDEX-262656,"
+NA","
+NA","
+This change needs to be done on DR environment as well.
+ 
+Fix of this issue has been provided in NR Automation docker image.
+ Please deploy below mentioned NR Automation docker image:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.6.4019
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.08,MMap,MMAP,CDEX-261682,"
+NA","
+16.6.22
+","
+To fix this issue, created index on table ds_rtb_unbilled_extract.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.08,BriteBill,BriteBill,CDEX-242538,"
+NA","
+NA","
+Specific for multimode env
+","
+HPA Config-     9516b8002a2
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.08,MMap,MMAP,CDEX-264682,"
+NA","
+16.6.23
+","
+Dmtx3globalparameter entry has been made to fix the issue.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.08,MMap,MMAP,CDEX-262376,"
+NA","
+NA","
+Data is not getting loaded from DS_CG_INVENTORY to DS_CG_CURRENT_INVENTORY. Indexes have been created to fix the issue.
+","
+7b2ff11a537
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.08,MMap,MMAP,CDEX-263120,"
+NA","
+16.6.24
+","
+To fix this issue conditions in view has been corrected as per new requirement.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,C1;#D1;#R1,OC;#C1;#OH;#RTB,NA,"
+NA","
+NA","
+ngnix plus and dynatrace upgrade - 
+
+
+instructions attached
+**only for pet and prod**
+
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-261272,"
+NA","
+NA","
+increase Kafka cpu  ****only for pet and prod****
+Please compare and merge cid.yaml from ATT_MPDK_3_1_0 branch for kafka module.
+
+","
+
+1)3f1387bb79d
+2)0b99588cb81
+3)24d18037468
+4)d58cacccbf8
+5)e0287d19b1c
+6)61d2174c715
+7)0a05c9f52aa
+8)010a28c9af3
+9)b565ff7d7cc
+10)7b2f27dcf8e
+11)d24782ac3c2
+12)97de61e4099
+13)90a63e9201b
+14)f4d943f9237
+15)7829857e223
+16)6da9d650aed
+17)c62c3a3465f
+18)2edfe0e6af2
+19)bd054839f1a
+20)4142537c28c
+21)0c04d2fc1a4
+22)ec9c8478f8e
+23)a7f459ee11b
+24)1dd70da560c
+25)8ec6d91c949
+26)5ccd120e3d2
+27)f2eb1e1a3c7
+28)6aed621928c
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-261729,"
+NA","
+NA","
+Restart es pods one at a time after running the BS PL for changes to take effect.This is applicable only for PET & PROD
+","
+35af884bd60
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.67,R1,RTB,CDEX-255283 CDEX-264168,"
+HF#151","
+NA","
+NA","
+a994f8550d7
+",,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.67,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-255283,"
+MPP version # 140","
+NA","
+NA","
+ede66fa0d72(please run all 3 Pipelines in INSTALL mode)
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,D1,OC,NA,"
+HF#96","
+NA","
+NA","
+84c0d3e604d
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,D1,OH,CDEX-263863,"
+HF#41","
+NA","
+NA","
+84c0d3e604d
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,D1,OC,NA,"
+Mass Mgmt HF#15","
+NA","
+NA","
+84c0d3e604d
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,D1,OC,NA,"
+Care HF#43","
+NA","
+NA","
+84c0d3e604d
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.09,C1;#D1;#R1,OC;#C1;#OH;#RTB,NA,"
+MPP version # 140","
+NA","
+NA","
+220e345398f
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.68,R1,RTB,CDEX-265963,"
+NA","
+NA","
+NA","
+56aea00cda3
+
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.10,R1,RTB,CDEX-265963,"
+NA","
+NA","
+NA","
+f05035abc4b
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.68,MMap,MMAP,CDEX-265916,"
+NA","
+NA","
+This change needs to be done on DR environment as well.
+ Kafka & Tx3 pod memory needs to increase to resolve this issue.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.10,MMap,MMAP,CDEX-265916,"
+NA","
+NA","
+This change needs to be done on DR environment as well.
+ Kafka & Tx3 pod memory needs to increase to resolve this issue.
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.10,MMap,MMAP,CDEX-258642,"
+Yes","
+NA","
+This fix needs to go in DR environment as well.
+ 
+Core has provided upgraded build for PI16 to fix 504 error which is coming on Audit GUI intermittently.
+ Audit:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-audit%2Ftags%2Fv9.4.6.3118
+Mgt:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-mgt%2Ftags%2Fv9.4.6.3118
+TX3:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Ftx3%2Ftags%2Fv9.4.6.3118
+Nodered ATM:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.6.3111
+Nodered BPM:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-bpm%2Ftags%2Fv9.4.6.3113
+","
+NA",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.10,D1,OC,CDEX-265881,"
+NA","
+commoncust-subdomain : 16.6.4
+","
+NA","
+8c0f3be5b5b
+",NA,FALSE,10/15/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.68 - CANCELLED,NEO,OSO,CDEX-252521,"
+oni-federation- 1.0.699-48
+onsi-2.0.1461-66
+ops-ui-1.0.837-14
+run-time-catalog-1.0.289-23
+persistence-10.7.242
+platform-10.7.193-1
+platform-config-10.7.87ms360-security-10.7.79
+nap-common-10.6.349-3
+","
+Orchestration Zip :http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support1-SNAPSHOT/att-orchestration-10.4-Support1-20231020.135316-26-src.zip
+","
+TLC Version:  10.4.380-Support1
+Reference Images:
+ATT MSs Image: 10.4-Support1-SNAPSHOT-135
+Customization Image: 10.4-Support1-SNAPSHOT-242
+ONI Image: 10.4-Support1-SNAPSHOT-25
+ 
+Reference Env:
+Master IP = 10.247.25.15
+Node1 IP = 10.247.25.35
+ 
+Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/48/
+Storage Build: (It’s getting failed)
+http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/283/Note :-This build is from Core Version 22.12
+","
+NA",NA,FALSE,10/22/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.10,BriteBill,BriteBill,CDEX-264354,"
+NA","
+NA","
+NA","
+  16.6 BB MS Release
+ commit –
+b6d828b1886
+ 
+Platform hybrid release package
+2.261.7
+",NA,FALSE,10/22/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.68,D1,OH,CDEX-264040,"
+NA","
+NA","
+NA","
+85c943c40ac25f47e2ec93
+",NA,FALSE,10/22/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.10,D1,OH,CDEX-264040,"
+NA","
+NA","
+NA","
+77c906f04b690ad2fd82cd
+",NA,FALSE,10/22/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.69,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-266700,"
+NA","
+NA","
+NA","
+5b3e72ba369 
+",NA,FALSE,10/23/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.11,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-266700,"
+NA","
+NA","
+NA","
+5f3ec75265d
+",NA,FALSE,10/23/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+15.5.69,D1,OC,CDEX-264410,"
+NA","
+NA","
+NA","
+ad04cc277d1
+",NA,FALSE,10/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.11,D1,OC,CDEX-264410,"
+NA","
+NA","
+NA","
+4f105340641
+",NA,FALSE,10/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.13,R1,RTB,CDEX-266780,"
+NA","
+cfm-bridge : 16.6.21
+","
+NA","
+cae576cdd7b
+",NA,FALSE,10/24/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,MMap,MMAP,CDEX-266749,"
+No","
+16.6.27
+","
+To fix this defect filter condition of view definition has been added.
+","
+NA",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,MMap,MMAP,CDEX-266068,"
+Yes","
+NA","
+This fix needs to go in DR environment as well.
+ 
+Core has provided upgraded build for PI16 to fix timeout error on MMAP Audit UI .
+ 
+Audit:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-audit%2Ftags%2Fv9.4.6.3120
+TX3:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Ftx3%2Ftags%2Fv9.4.6.3120
+MGT:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-mgt%2Ftags%2Fv9.4.6.3120
+NR BPM:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-bpm%2Ftags%2Fv9.4.6.3120
+NR ATM:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.6.3120
+GUI Build:\\cvstor\Apps-Versions\Releases\9.4.6\bbMoneyMap\Build 3120 - 22102023_1455\
+","
+NA",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,D1,OC,CDEX-266444,"
+HF#98","
+NA","
+NA","
+3d0a4de1b8c
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,iPaaS,Sky-Smart;#Sky-Force,CDEX-265634 ,"
+NA","
+SKY-FM/bsse-smart
+ SKY-FM/sky-force
+
+
+
+ITR16.6/bsse-bootstrap
+ITR16.6/bsse-application
+ITR16.6/bsse-fallout-management
+ITR16.6/bsse-reconciliation
+ ITR16.6/o2aportalui
+
+","
+NA","
+c0cc61ed90e
+
+f828a92fb10
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,C1;#D1;#R1,OC;#C1;#OH;#RTB,NA,"
+MPP version # 141","
+NA","
+(please run all 3 Pipelines in INSTALL mode)","
+09c31920f17
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,D1,OC,NA,"
+Common Services HF#5
+","
+NA","
+NA","
+8ff0d1a726d
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,D1,OC,NA,"
+Care HF#45","
+NA","
+NA","
+bb5f7bceccc
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,D1,OC,NA,"
+Mass Mgmt  HF#16","
+NA","
+NA","
+86cf82be8ed
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,D1,OH,NA,"
+HF#42","
+NA","
+NA","
+66546cc7b1e
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,MMap,MMAP,CDEX-266285,"
+
+","
+16.6.26
+",Fix for this defect has been provided by Renaming columns on the DS_CFM_824_WRITEOFF table,"
+NA",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.13,R1,RTB,CDEX-267187,"
+HF#72","
+NA","
+NA","
+27ffd0c05db
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.12,MMap,MMAP,CDEX-265463,"
+No","
+16.6.29
+","
+Fix for this defect Cycle start and end date related report tables have been modified.
+","
+NA",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.14,iPaaS,Sky-Smart,CDEX-267210,"
+NA","
+Module :
+   Bsse-Smart :    bsse-fallout-management :  354
+","
+NA","
+ca2abce8319
+",Day 0,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.14 - Cancelled,MMap,MMAP,CDEX-265463,"
+NA","
+16.6.29
+","
+Fix for this defect Cycle start and end date related report tables have been modified.
+","
+NA",,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.14,MMap,MMAP,CDEX-264977,"
+NA","
+16.6.25
+","
+This fix needs to be deployed in DR environment as well.
+ 
+Adapted changes in NR flow to show converted time and created view to support timezone changes for Cycle monitor page.
+ NR ATM docker:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.6.4030
+","
+NA",Day 0,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.14,BriteBill,BriteBill,CDEX-265871,"
+NA","
+NA","
+Specific for multimode env
+","
+VCR memory change-
+6700feac0f2
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.14,MMap,MMAP,CDEX-253392,"
+NA","
+NA","
+Fix for this defect changes have been done in MSTR. We need to deploy below MSTR deployment package.
+ CDEX-253392_Audit - Quick View.mmp
+","
+2c6a1971935
+",Day 0,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.14,MMap,MMAP,CDEX-262656,"
+NA","
+NA","
+This fix needs to be deployed in DR environment as well.
+ 
+Fix has been provided as part of NR Automation docker image.
+ NR ATM docker:https://nexus.attmgmt.attbsse.amdocs.com/#browse/browse:amo-moneymap:v2%2Fmm-nodered-automation%2Ftags%2Fv9.4.7.2193
+","
+NA",Day 0,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.14,iPaaS,Sky-View,BSSE-84338 BSSE-79669 BSSE-79669,"
+NA","
+NA","
+NA","
+0ee635adf23
+",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.15,MMap,MMAP,,"
+NA","
+16.6.30
+","
+
+To fix this defect SP MM_PSGN_UPDATE_RULE_STATUS has been modified.
+","
+NA",Day 0,FALSE,10/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.15,MMap,MMAP,CDEX-267597,"
+NA","
+NA","
+To fix this defect need to remove KAFKA.CONSUMER_NAME parameter from TX3 & Kafka.config file.
+","
+NA",Day 0 ,FALSE,10/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.15,BriteBill,BriteBill,CDEX-266733,"
+NA","
+NA","
+NA","
+  16.6 BB MS Release
+ commit –
+a6570c60270
+ 
+Platform hybrid release package
+2.261.8
+",NA,FALSE,10/26/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.15,R1,RTB,CDEX-267438 BSSE-84422,"
+HF#73","
+NA","
+NA","
+8c7373d1b1a
+",Day 0,FALSE,10/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.15,D1,OC,NA,"
+NA","
+NA","
+NA","
+8c7373d1b1a
+",NA,FALSE,10/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.15,C1;#D1;#R1,OC;#C1;#OH;#RTB,CDEX-266777,"
+NA","
+NA","
+
+note:
+please make sure your CRD branch has below DD versions. Higher version is also fine.cb-kafka-connector-dd:2.13.14 --> please take this version only.
+ fndsec-pki-dd:2.4.10
+ ms-lifecycle-operator-dd:1.23.38
+ fndsec-sso-dd:4.19.16
+ service-catalog-dd:1.2.25
+
+Also if we have following file present please delete..
+profileValues/customPlatform/azure/products/fnd/ms360-global-config/fndsec-pki-common-deployment-helm/fndsec-pki-common-deployment-values.yaml
+","
+
+ece3795dba7
+cd5b9d59821
+e07522a2a34
+6776b1292ce
+33c914aa798
+6ea23525e0f
+
+",Day 0,FALSE,10/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.16,MMap,MMAP,CDEX-267295,"
+NA","
+16.6.31
+","
+As per the data coming from RTB end, length of event id column is required to be more than 50, so we increased the same to handle this defect.
+","
+NA",Day 0,FALSE,10/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.16,MMap,MMAP,CDEX-253396,"
+NA","
+16.6.29
+","
+As per the request from ATT, confirmed status is replaced with approved status.
+","
+NA",Day 0,FALSE,10/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.16,MMap,MMAP,CDEX-267618,"
+NA","
+NA","
+To fix this defect we need to deploy MSTR package. Below mentioned MSTR packages should be present on PI16 environment.
+ PI17.1_BSSE_82621.mmp along withTZ_AuditDashboards_BSSe03.mmp
+","
+1530f6f93d8
+",Day 0,FALSE,10/27/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,D1,OC,CDEX-267206,"
+HF#43","
+NA","
+NA","
+59f08b27774
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,D1,OH,NA,"
+HF#17","
+NA","
+NA","
+7dbe32d9bd2
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,R1,RTB,NA,"
+HF#34","
+NA","
+NA","
+0b1c191dac5
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,D1,OC,NA,"
+Mass MgmtHF#8","
+NA","
+NA","
+8fb0dd0d816
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,D1,OC,NA,"
+Care HF#30","
+NA","
+NA","
+9090e098cb5
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,C1;#D1;#R1,OC;#C1;#OH;#RTB,NA,"
+MPP version #141","
+NA","
+(please run all 3 Pipelines in INSTALL mode)","
+ca2ab3fee31
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,D1,OC,NA,"
+Common Services HF#3","
+NA","
+NA","
+b19b1f4553e
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,C1,C1,NA,"
+HF#6","
+NA","
+NA","
+e638cbec23d
+",NA,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.16,D1,OC,CDEX-267555 ,"
+HF#101","
+NA","
+NA","
+c31b4884d71
+",Day 0,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.16,D1,OC,CDEX-268598,"
+NA","
+catalogoneintegration-outboundfilte : 16.6.4
+","
+NA","
+b03f00e967e
+",Day 0,FALSE,10/29/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,,,,,,,,,FALSE,10/30/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+16.6.16,NEO,OSO,CDEX-263556 ,"
+NA","
+Update the att-dop override file to include following parameter(Highlighted IN YELLOW) and deploy the dop chart again :-
+cmn-dop:
+  dop:
+    web-security-proxy-deployment:
+       webSecProxyConfig:
+         overrideData:
+           -rootPath:""/tmf-api/""
+             address:""tmf-638-adapter:9532""
+","
+TLC Version:  NA
+Reference Images:ATT MSs Image: NACustomization Image: NA
+ONI ImageNA
+ 
+Reference Env:
+Master IP = NA
+Node1 IP = NA
+ 
+ 
+Chart Backup Build:
+NA
+ 
+Image Backup Build 
+NA
+ 
+Storage Build: 
+NA
+","
+NA",Day 0,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
+17.1.00,NEO,OSO,Baseline Build,"
+oni-federation- 1.0.801-59
+onsi-2.0.1570-47
+ops-ui-1.0.1209-16
+run-time-catalog-1.0.353-23
+persistence-10.7.279-12
+platform-10.7.225-50
+platform-config-10.7.96-6ms360-security-10.7.88-34
+nap-common-10.6.368-21
+","
+Orchestration Zip :http://os-nexus2:8081/repository/att.maven.snapshot/com/amdocs/oss/att/customization/att-orchestration/10.4-Support2-SNAPSHOT/att-orchestration-10.4-Support2-20231023.155833-23-src.zip
+","
+TLC Version:  10.4.136-Support2
+Reference Images:ATT MSs Image: 10.4-Support2-SNAPSHOT-26Customization Image: 10.4-Support2-SNAPSHOT-68ONI Image:10.4-Support2-SNAPSHOT-21
+ 
+ 
+Reference Env:
+Master IP = 10.247.21.174
+Node1 IP = 10.247.21.207
+ 
+Backup Build:
+http://os-delivery-jenkins:8080/job/Utility/job/NexusUtility/job/backupOldCharts/49/
+Storage Build: (It’s getting failed)
+10.6.368-21http://ilososp030.corp.amdocs.com:7070/view/ATT/job/ATT_Storage_Creation_10.4/286/
+","
+NA",NA,FALSE,10/25/2023,Item,sites/ATTBSSEvolutionDevTeam/Lists/RN
